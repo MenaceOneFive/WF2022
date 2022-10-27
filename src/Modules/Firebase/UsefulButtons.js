@@ -15,6 +15,7 @@ export const GetSnapshot = () => {
     const querySnapshot = () => {
         const app = FBInit().app;
         const db = getFirestore(app);
+        //파이어스토어에서 문서 컬렉션을 갖고 오는 방법
         getDocs(collection(db, "rooms"))
             .then(
                 (resolved, rejected) => {
