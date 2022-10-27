@@ -4,21 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-//<editor-fold desc="Firebase 관련 import>
-import {FBInit} from './Modules/Firebase/FBInit.js'
-import {getDatabase, ref, onValue, set} from "firebase/database";
-//</editor-fold desc>
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const init = FBInit()
-
-const database = getDatabase();
-
-const hotelRef = ref(database, `/`)
-onValue(hotelRef, (snapshot) => {
-    const data = snapshot.val()
-    console.log(data)
-})
 
 
 root.render(
