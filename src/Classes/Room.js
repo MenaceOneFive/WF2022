@@ -7,7 +7,8 @@ export class Room {
         this.description = ""
         this.detail = null
         this.facility = null
-        this.array = null
+        this.images = null
+
     }
 }
 
@@ -16,9 +17,11 @@ export class Room {
 export const ConvertJsonToRoom = (obj) => {
     let room = new Room();
     room.id = obj.id
+    room.name= obj.name
     room.description = obj.description
     room.detail = obj.detail
     room.facility = obj.facility
+    room.images = obj.images
     return room
 
 }
@@ -32,6 +35,7 @@ export const RoomConverter = {
             description: room.description,
             detail: room.detail,
             facility: room.facility,
+            images: room.images
         }
     }, fromFirestore: (snapshot, options) => {
         const data = snapshot.data(options)
@@ -40,5 +44,6 @@ export const RoomConverter = {
         room.description = data.description
         room.detail = data.detail
         room.facility = data.facility
+        room.images = data.images
     }
 };
