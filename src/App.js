@@ -1,6 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import {GetSnapshot, AddData, AddData2, GetRooms, AddRoom, ImportJsonButton} from './Modules/Firebase/UsefulButtons'
+import {
+    GetSnapshot,
+    AddData,
+    AddData2,
+    GetRooms,
+    AddRoom,
+    ImportJsonButton,
+    ImportAirport, GetAirports
+} from './Modules/Firebase/UsefulButtons'
 import {MainPage} from "./Modules/UI/MainPage/MainPage";
 
 function App() {
@@ -8,10 +16,12 @@ function App() {
     return (
         <>
             <MainPage/>
+            <ImportAirport/>
             <GetSnapshot/>
             <GetRooms/>
             <AddRoom/>
             <ImportJsonButton/>
+            <GetAirports/>
         </>
         // <div className="App">
         //     <header className="App-header">

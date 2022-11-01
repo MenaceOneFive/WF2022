@@ -111,6 +111,69 @@ export const AddRoom = () => {
     </>)
 
 }
+export const UploadAirport = (airport) => {
+
+}
+export const ImportAirport = () => {
+    const Converter = {
+        toFirestore: (airport) => {
+            return {
+                name: airport.name + "",
+                code: airport.code,
+                country: airport.country
+            }
+        },
+        fromFirestore: (snapshot, options) => {
+        }
+    };
+
+    const processAsFile = (event) => {
+        const reader = new FileReader();
+        reader.readAsText(event.target.files[0], "UTF-8")
+        reader.onload = function () {
+            const input = reader.result.split("\n")
+            const airports = input.map(
+                (item, i) => {
+                    const raw = item.split(",");
+                    return {name: raw[0], code: raw[1], country: raw[2]}
+                }
+            )
+            const app = FBInit().app;
+            const db = getFirestore(app);
+            console.log(airports.length)
+            for (let idx = 0; idx < airports.length; ++idx) {
+                // console.log(`${airports[idx].name}, ${airports[idx].code}, ${airports[idx].country} `)
+                setDoc(doc(db, "airports", airports[idx].code).withConverter(Converter), airports[idx]
+                ).then((result) => {
+                    // console.log(`wrote record of ${airports[idx].name}`)
+                })
+            }
+            console.log("Done!")
+
+        }
+    }
+    return (<>
+        <input type={"file"} accept={"application/activity+json"} onChange={processAsFile}></input>
+    </>)
+}
+export const GetAirports = () => {
+    const updateData = () => {
+        const app = FBInit().app;
+        const db = getFirestore(app);
+        // const docRef = doc(db, "cities", "SF");
+        const docRef = collection(db, "airports");
+        const docSnap = getDocs(docRef).then((result) => {
+            let i = 0;
+            result.forEach((item) =>
+                i++
+            )
+            console.log(i)
+        });
+    }
+    return (<>
+        <button onClick={updateData}>방 추가</button>
+    </>)
+}
 /**
  * Room객체를 파이어스토어에 전송하는 함수
  * @param room
