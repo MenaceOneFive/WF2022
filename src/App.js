@@ -10,8 +10,6 @@ function App() {
             <MainPage/>
             <GetSnapshot/>
             <GetRooms/>
-            <AddRoom/>
-            <ImportJsonButton/>
         </>
         // <div className="App">
         //     <header className="App-header">
