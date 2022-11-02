@@ -146,3 +146,29 @@ export const ImportJsonButton = () => {
         <input type={"file"} accept={"application/activity+json"} onChange={processAsFile}></input>
     </>)
 }
+
+export const UploadReview = ({room}) => {
+    const ReviewConverter = {
+        toFirestore: (review) => {
+            return {
+                uid: review.uid,
+                stars: review.stars,
+                review: review.review
+            }
+        }
+    }
+    const DoUpload = () => {
+        const app = FBInit().app;
+        const db = getFirestore(app);
+        setDoc(doc(db, `rooms/${room.id}/reviews`, "120301023").withConverter(ReviewConverter),
+            {
+                uid: "123123123122",
+                stars: 4,
+                review: "방이 개 좁아요 가지마요"
+            }
+        ).then((result) => {
+            console.log(`wrote record of ${room.id}`)
+        })
+    }
+    return <button onClick={DoUpload}>{"리뷰 작성"}</button>
+}
