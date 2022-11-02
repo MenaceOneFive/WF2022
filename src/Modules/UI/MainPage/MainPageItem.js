@@ -1,3 +1,6 @@
+import {UploadReview} from "../../Firebase/UsefulButtons";
+import {ReviewSection} from "../../Review/UploadReview";
+
 export const MainPageItem = ({room}) => {
     const renderFacilities = (facility) => {
         if (facility == null)
@@ -45,6 +48,7 @@ export const MainPageItem = ({room}) => {
                 <p><h2>시설</h2></p>
                 {renderFacilities(room.facility)
                 }</div>
+            <ReviewSection room={room}/>
         </>
     )
 }
@@ -60,4 +64,7 @@ export const ItemGroup = ({objs, idx}) => {
             <MainPageItem room={objs[idx]}/>
         }
     </>)
+        // {
+        //     <UploadReview room={objs[idx]}/>
+        // }
 }
