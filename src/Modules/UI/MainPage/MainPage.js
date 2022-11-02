@@ -3,8 +3,9 @@ import {FBInit} from "../../Firebase/FBInit";
 import {collection, getDocs, getFirestore} from "firebase/firestore";
 import {ConvertJsonToRoom} from "../../../Classes/Room";
 import {useEffect, useState} from "react";
+import {getAuth} from "firebase/auth";
 
-export const MainPage = () => {
+export const MainPage = ({userState}) => {
     const [rooms, AddRooms] = useState([])
     const [idx, setIdx] = useState(0)
     const app = FBInit().app;
@@ -28,6 +29,6 @@ export const MainPage = () => {
 
         <button onClick={prev}>이전</button>
         <button onClick={next}>다음</button>
-            <ItemGroup objs={rooms} idx={idx}/>
+            <ItemGroup objs={rooms} idx={idx} userState={userState}/>
     </>)
 }

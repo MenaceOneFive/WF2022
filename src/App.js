@@ -1,15 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import {GetSnapshot, AddData, AddData2, GetRooms, AddRoom, ImportJsonButton} from './Modules/Firebase/UsefulButtons'
 import {MainPage} from "./Modules/UI/MainPage/MainPage";
-import {GoogleSignIn} from "./Modules/Firebase/FBAuth";
+import {GoogleSignIn, GoogleSignInButton} from "./Modules/Firebase/FBAuth";
+import {useState} from "react";
+import {getAuth} from "firebase/auth";
+import {FBInit} from "./Modules/Firebase/FBInit";
 
 function App() {
-
+    FBInit()
+    const [userState, setUserState] = useState(getAuth().currentUser)
     return (
         <>
-            <MainPage/>
-            <GoogleSignIn/>
+            <MainPage userState={userState}/>
+            <GoogleSignInButton setUser={setUserState}/>
             {/*<GetSnapshot/>*/}
             {/*<GetRooms/>*/}
         </>
