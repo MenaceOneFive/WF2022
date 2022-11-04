@@ -1,34 +1,35 @@
-import {ItemGroup, MainPageItem} from "./MainPageItem";
 import {FBInit} from "../../Firebase/FBInit";
-import {collection, getDocs, getFirestore} from "firebase/firestore";
+import {
+    collection, getDocs, getFirestore, query, where, orderBy, limit, startAfter, doc, getDoc, startAt
+} from "firebase/firestore";
 import {ConvertJsonToRoom} from "../../../Classes/Room";
 import {useEffect, useState} from "react";
-import {getAuth} from "firebase/auth";
+import {ShowList} from "./MainPageItem";
 
-export const MainPage = ({userState}) => {
+export const MainPage = () => {
     const [rooms, AddRooms] = useState([])
-    const [idx, setIdx] = useState(0)
     const app = FBInit().app;
     const db = getFirestore(app);
     //파이어스토어에서 문서 컬렉션을 갖고 오는 방법
     useEffect(() => {
-        getDocs(collection(db, "rooms"))
-            .then(
-                (resolved, rejected) => {
-                    let list = []
-                    resolved.forEach(res => {
-                        const room = ConvertJsonToRoom(res.data())
-                        list = [...list, room]
-                    })
-                    AddRooms([...rooms, ...list])
-                })
+        GetRooms(0, 6).then((list) => {
+            AddRooms([...rooms, ...list])
+        })
     }, [])
-    const next = ()=>setIdx((idx + 1)%rooms.length)
-    const prev = ()=>setIdx((idx - 1)%rooms.length)
-    return (<>
 
-        <button onClick={prev}>이전</button>
-        <button onClick={next}>다음</button>
-            <ItemGroup objs={rooms} idx={idx} userState={userState}/>
+    const GetRooms = (index, count) =>
+        new Promise(async (resolve, reject) => {
+            const roomRef = collection(db, "rooms");
+            const snapshot = await getDoc(doc(roomRef, `item[${index}]`));
+            const rooms = (await getDocs(query(roomRef, orderBy("name"), startAt(snapshot), limit(count))))
+                .docs.map(
+                    (item, idx) => ConvertJsonToRoom(item.data())
+                );
+            resolve(rooms)
+        })
+
+    GetRooms(10, 3).then()
+    return (<>
+        <ShowList objs={rooms}/>
     </>)
 }

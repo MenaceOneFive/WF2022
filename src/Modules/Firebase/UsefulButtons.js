@@ -116,10 +116,10 @@ export const AddRoom = () => {
  * @param room
  * @constructor
  */
-export const UploadRoom = (room) => {
+export const UploadRoom = (room, idx) => {
     const app = FBInit().app;
     const db = getFirestore(app);
-    setDoc(doc(db, "rooms", room.id.toString()).withConverter(RoomConverter),
+    setDoc(doc(db, "rooms", `item[${idx}]`).withConverter(RoomConverter),
         room
     ).then((result) => {
         console.log(`wrote record of ${room.id}`)
@@ -135,10 +135,16 @@ export const ImportJsonButton = () => {
         var reader = new FileReader();
         reader.readAsText(event.target.files[0], "UTF-8")
         reader.onload = function () {
+            const m = new Map()
             const input = JSON.parse(reader.result)
             input.map((item, idx) => {
                 let room = ConvertJsonToRoom(item)
-                UploadRoom(room)
+                m.set(room.id, room)
+            })
+            let i = 0
+            m.forEach((room) => {
+                UploadRoom(room, i)
+                i+=1
             })
         }
     }
