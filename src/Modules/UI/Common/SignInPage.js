@@ -3,7 +3,8 @@ import {getFBAuth, isSignedIn, signOut} from "../../Firebase/FBAuth";
 import {GoogleSignInButton} from "../../Firebase/GoogleSignInButton";
 
 export const SignInPage = () => {
-    console.log(getFBAuth().currentUser.displayName)
+    const auth = getFBAuth()
+    console.log(auth.currentUser==null? "":auth.displayName)
     return (
         <div>
             <h1>{"환영합니다"}</h1>
