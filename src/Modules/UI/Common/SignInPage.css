@@ -1,0 +1,32 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap/dist/css/bootstrap.css';
+
+body {
+    background: #a1a1a1;
+    height : 100vh;
+}
+
+#main-container {
+    place-items: center center; 
+}
+
+#sign-in-form {
+    max-width: 330px;
+}
+
+#login-error-text {
+    color: red;
+}
+
+#button-div {
+    place-items: center center;
+}
+
+.logo {
+    width: 72px;
+    height: 72px;
+}
+
+.form-control:focus {
+    z-index: 5;
+}
