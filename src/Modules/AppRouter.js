@@ -3,21 +3,21 @@ import {MainPage} from "./UI/MainPage/MainPage";
 import {Product} from "./UI/Products/Product";
 import {TestPage} from "./TestPage";
 import {SignInPage, SignOutButton, ToSignInPageButton} from "./UI/Common/SignInPage";
-import {getFBAuth, isSignedIn} from "./Firebase/FBAuth";
+import {getFBAuth, isSignedIn} from "../FirebaseWrapper/FBAuth";
 import {DrawBanner} from "./UI/MainPage/CarouselBanner";
+import Flight from "./Search/Flight";
 
 function Home() {
     const signedIn = isSignedIn()
     return (
         <div className='app-container'>
             <header style={{height: 100}}>
-                <div>
-                    {signedIn ? getFBAuth().currentUser.displayName : ""}
-                    {signedIn ? <SignOutButton/> : <ToSignInPageButton/>}
-                    <br/>
-                </div>
+                {signedIn ? getFBAuth().currentUser.displayName : ""}
+                {signedIn ? <SignOutButton/> : <ToSignInPageButton/>}
+                <br/>
             </header>
             <section>
+                <Flight/>
                 <DrawBanner/>
                 <MainPage/>
             </section>
