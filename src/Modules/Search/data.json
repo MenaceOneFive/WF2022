@@ -1,0 +1,17 @@
+[
+  {
+    "label":"후쿠오카국제공항", "value":"FUK", "country":"일본"
+  },
+  {
+    "label":"인천국제공항", "value":"ICN", "country":"대한민국"
+  },
+  {
+    "label":"즈바노츠 국제공항", "value":"EVN", "country":"아르헨티나"
+  },
+  {
+    "label":"정저우 신쳉 국제공항", "value":"CGO", "country":"마카오"
+  },
+  {
+    "label":"요룬 공항", "value":"RNJ", "country":"일본"
+  }
+]
