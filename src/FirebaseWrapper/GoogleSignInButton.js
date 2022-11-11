@@ -1,5 +1,5 @@
 import {getAuth, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
-import {Navigate, useNavigate} from "react-router-dom";
+import {Navigate } from "react-router-dom";
 import {useState} from "react";
 
 export const GoogleSignInButton = () => {
