@@ -16,6 +16,10 @@ export const SignInPage = () => {
     const auth = getFBAuth()
     const navigate = useNavigate();
 
+    const logoClick = () => {
+        navigate("/")
+    }
+
     const onChange = (event) => {
         const {target:{id, value}} = event;
         if (id === "sign-in-email-address") {
@@ -48,7 +52,8 @@ export const SignInPage = () => {
                 <img
                     className="mb-4 logo"
                     src="img/temp-logo.png"
-                    alt="temp logo" />
+                    alt="temp logo" 
+                    onClick={logoClick}/>
                     <h1 className="mb-3 fs-3 fw-normal">로그인</h1>
                     <Form.Group controlId="sign-in-email-address">
                         <Form.Control type="email" size="lg" placeholder="이메일 주소" autoComplete="username" className="position-relative" 
