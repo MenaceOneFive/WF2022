@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
-import {getFBAuth, isSignedIn, signOut} from "../../Firebase/FBAuth";
-import {GoogleSignInButton} from "../../Firebase/GoogleSignInButton";
+import {getFBAuth, isSignedIn, signOut} from "../../../FirebaseWrapper/FBAuth";
+import {GoogleSignInButton} from "../../../FirebaseWrapper/GoogleSignInButton";
 
 export const SignInPage = () => {
     const auth = getFBAuth()

@@ -1,5 +1,5 @@
 /**
- *  Firebase Firestore 와의 상호작용예시를 다룬 스크립트
+ *  FirebaseWrapper Firestore 와의 상호작용예시를 다룬 스크립트
  *
  */
 
@@ -8,7 +8,7 @@ import {collection, getDocs, addDoc, setDoc, doc} from "firebase/firestore";
 import {FBInit} from "./FBInit";
 import {getFirestore} from 'firebase/firestore'
 import {useState} from "react";
-import {ConvertJsonToRoom, Room, RoomConverter} from "../../Classes/Room";
+import {ConvertJsonToRoom, Room, RoomConverter} from "../Classes/Room";
 
 export const GetSnapshot = () => {
     const [message, setMessage] = useState("");
