@@ -12,7 +12,6 @@ export class Room {
     }
 }
 
-
 // Obj를 Room객체로 변환
 export const ConvertJsonToRoom = (obj) => {
     let room = new Room();

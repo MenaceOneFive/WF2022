@@ -1,9 +1,10 @@
 import {useNavigate} from "react-router-dom";
-import {getFBAuth, isSignedIn, signOut} from "../../../FirebaseWrapper/FBAuth";
+import {isSignedIn, signOut} from "../../../FirebaseWrapper/FBAuth";
 import {GoogleSignInButton} from "../../../FirebaseWrapper/GoogleSignInButton";
+import {getAuth} from "firebase/auth";
 
 export const SignInPage = () => {
-    const auth = getFBAuth()
+    const auth = getAuth()
     console.log(auth.currentUser==null? "":auth.displayName)
     return (
         <div>
