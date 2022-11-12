@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
+// eslint-disable-next-line no-unused-vars
 
 import {
     Avatar,
@@ -9,10 +10,11 @@ import {
     MessageInput,
     Sidebar
 } from "@chatscope/chat-ui-kit-react";
-import {ChatItem} from "./ChatItem";
+import {ChatMSG} from "./ChatMSG";
 import {ChatList} from "./ChatList";
 
 export const Container = ({chats, style: styles}) => {
+    styles = {...styles}
     const [sidebarVisible, setSidebarVisible] = useState(false);
     const [sidebarStyle, setSidebarStyle] = useState({});
     const [chatContainerStyle, setChatContainerStyle] = useState({});
@@ -26,7 +28,7 @@ export const Container = ({chats, style: styles}) => {
     const currentRoom = useMemo(() => {
         if (chats.length > 0) {
             const chat = chats.find((item) => item.uuid === uuid)
-            return (ChatItem({chat, styles}))
+            return (ChatMSG({chat, styles}))
         }
     }, [chats, uuid])
     const chatList = () => {

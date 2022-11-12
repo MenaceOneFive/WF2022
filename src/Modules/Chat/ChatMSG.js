@@ -8,7 +8,7 @@ import {getAuth} from "firebase/auth";
  * @returns {JSX.Element}
  * @constructor
  */
-export const ChatItem = ({chat, styles}) => {
+export const ChatMSG = ({chat, styles}) => {
     if (chat === undefined || chat == null) {
         return (<MessageList style={styles}></MessageList>)
     }

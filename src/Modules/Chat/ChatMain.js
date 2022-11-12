@@ -1,18 +1,8 @@
 import {isSignedIn} from "../../FirebaseWrapper/FBAuth";
 import {SignOutButton, ToSignInPageButton} from "../UI/Common/SignInPage";
-import {v4} from 'uuid'
 import {Container} from "./Container";
 import {useChat} from "./hooks";
 import {getAuth} from "firebase/auth";
-
-//<editor-fold desc="자료 정의">
-export class Chat {
-    constructor() {
-        this.participants = [];
-        this.messages = [];
-        this.uuid = v4()
-    }
-}
 
 export class Message2 {
     constructor() {
@@ -23,22 +13,6 @@ export class Message2 {
 
 }
 
-export const ChatConverter = {
-    toFirestore: (chat) => {
-        return {
-            participants: chat.participants,
-            messages: chat.messages,
-            uuid: chat.uuid
-        }
-    },
-    fromFirestore: (snapshot, options) => {
-        const data = snapshot.data(options)
-        const chat = new Chat();
-        chat.participants = data.participants;
-        chat.messages = data.messages;
-        chat.uuid = data.uuid;
-    }
-}
 export const MessageConverter = {
     toFirestore: (msg) => {
         return {

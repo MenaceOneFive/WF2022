@@ -1,8 +1,8 @@
 import {useEffect, useRef, useState} from "react";
 import {collection, doc, getFirestore, onSnapshot, query, setDoc, where} from "firebase/firestore";
 import {useFBAuth} from "../../FirebaseWrapper/FBAuth";
-import {Chat, ChatConverter} from "./Chat";
 import {FBInit} from "../../FirebaseWrapper/FBInit";
+import {Chat, ChatConverter} from "../../Classes/Chat";
 
 
 const getCollection = () => {
