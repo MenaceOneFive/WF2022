@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
 // eslint-disable-next-line no-unused-vars
+import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 
 import {
     Avatar,
