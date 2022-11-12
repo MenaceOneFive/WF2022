@@ -4,35 +4,6 @@ import {Container} from "./Container";
 import {useChat} from "./hooks";
 import {getAuth} from "firebase/auth";
 
-export class Message2 {
-    constructor() {
-        this.speaker = null;
-        this.itemType = "Text"
-        this.item = ""
-    }
-
-}
-
-export const MessageConverter = {
-    toFirestore: (msg) => {
-        return {
-            speaker: msg.speaker,
-            itemType: msg.itemType,
-            item: msg.item
-
-        }
-    }, fromFirestore: (snapshot, options) => {
-        const data = snapshot.data(options);
-        const msg = new Message2();
-        msg.item = data.item;
-        msg.itemType = data.itemType;
-        msg.speaker = data.speaker;
-        return msg
-    }
-
-
-}
-//</editor-fold>
 
 export const ChattingRoom = () => {
     const signedIn = isSignedIn()

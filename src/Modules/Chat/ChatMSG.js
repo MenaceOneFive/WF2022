@@ -13,8 +13,8 @@ export const ChatMSG = ({chat, styles}) => {
         return (<MessageList style={styles}></MessageList>)
     }
     let currentUser = getAuth().currentUser
-    let participants = chat.data.participants
-    let messages = chat.data.messages
+    let participants = chat.participants
+    let messages = chat.messages
     if (currentUser == null) {               //현재 사용자가 null이면 로그인 필요
         console.error("로그인이 필요합니다")
         return (<MessageList style={styles}></MessageList>)
@@ -32,13 +32,16 @@ export const ChatMSG = ({chat, styles}) => {
     return (
         <MessageList style={styles}>{
             messages.map(
-                (item, idx) =>
-                    <Message key={idx} model={{
-                        message: `${item}`,
-                        sentTime: "15 mins ago",
+                (item, idx) => {
+                    return (<Message key={idx} model={{
+                        message: `${item.message}`,
+                        sentTime: `${item.timestamp}`,
                         sender: "Zoe",
                         direction: "incoming",
                         position: "single"
-                    }}/>)}
-        </MessageList>)
+                    }}/>)
+                })
+        }
+        </MessageList>
+    )
 }

@@ -13,6 +13,8 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import {ChatMSG} from "./ChatMSG";
 import {ChatList} from "./ChatList";
+import {addMessageToChat} from "../../FirebaseWrapper/writeMessage";
+import {Message} from "../../Classes/Message";
 
 export const Container = ({chats, style: styles}) => {
     styles = {...styles}
@@ -37,7 +39,10 @@ export const Container = ({chats, style: styles}) => {
             return chats.map(
                 (item, idx) =>
                     ChatList({
-                        chat: item, key: idx, style:{...styles, conversationAvatarStyle, conversationContentStyle} , onClick: () => {
+                        chat: item,
+                        key: idx,
+                        style: {...styles, conversationAvatarStyle, conversationContentStyle},
+                        onClick: () => {
                             setUuid(item.uuid)
                         }
                     }))
@@ -48,7 +53,13 @@ export const Container = ({chats, style: styles}) => {
             setSidebarVisible(false);
         }
     }, [sidebarVisible, setSidebarVisible]);
+    const sendMessage = (msg) => {
+        const chat = chats.find((item) => item.uuid === uuid)
+        if (chat !== undefined)
+            addMessageToChat(chat, msg).then()
+        console.log()
 
+    }
     useEffect(() => {
         if (sidebarVisible) {
             setSidebarStyle({
@@ -88,7 +99,16 @@ export const Container = ({chats, style: styles}) => {
                     <ConversationHeader.Content userName="Zoe" info="Active 10 mins ago"/>
                 </ConversationHeader>
                 {currentRoom}
-                <MessageInput placeholder="Type message here"/>
+                <MessageInput placeholder="여기에 입력하세요." sendDisabled={false}
+                              onSend={(innerHtml, textContent, innerText) => {
+                                  const msg = new Message()
+                                  msg.message = innerText
+                                  msg.timestamp = Date.now() / 1000
+                                  msg.itemType = "Text"
+                                  msg.speaker = 1
+                                  console.log("Clicked")
+                                  sendMessage(msg)
+                              }}/>
             </ChatContainer>
         </MainContainer>
     </div>
