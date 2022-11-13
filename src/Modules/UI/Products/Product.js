@@ -46,29 +46,28 @@ const renderImage = (images) => {
                 return (
                 <>
                     <ul>
-                        <li><img src={item} key={idx} width={200} height={100}/></li>
+                        <li><img src={item} key={idx} /></li>
                     </ul>
                 </>
                 )
-            }
-        )
-        )
+                 }
+             )
+         )
 }
     return (
         <>
-            <div><h2>{room.name}</h2></div>
-            <div>
-            </div>
+            <div><h2 class="room_title">{room.name}</h2></div>
             <div className={"images"}>{
                 renderImage(room.images)
             }</div>
            
-            <div>
-                <h3>설명 : {room.description}</h3>
+            <div class="room_dec">
+                <p>{room.description}</p>
             </div>
             <div className={"facility"}>
-                <p><h2>시설</h2></p>
+                <h3>시설</h3>
                 {renderFacilities(room.facility)}
+                
             </div>
         </>
     )
