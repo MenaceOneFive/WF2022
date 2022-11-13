@@ -13,14 +13,56 @@ export const Product = () => {
         console.error("outOfIndexErr")
     return (<ProductDetail idx={roomID}/>)
 }
-
+// <p>{JSON.stringify(room, null, 2)}</p>
 export const ProductDetail = ({idx}) => {
     const [room, loading] = useRoom(idx)
     if (loading)
         return (<>{"Hold on, page will be ready soon"}</>)
+//데이터 받기
+const renderFacilities = (facility) => {
+    if (facility == null)
+        return (<></>)
+    return facility.map((object, idx) => {
+        return (<>
+                <ul key={idx}>
+                    <li><h4>{object.head}</h4>
+                        <ul>
+                            {object.items.map((item, i) => {
+                                return <li key={i}><h5>{item}</h5></li>
+                            })}</ul>
+                    </li>
+                </ul>
+            </>
+        )
+    })
+}
+const renderImage = (images) => {
+    if (images == null)
+        return (<></>)
     return (
-        <div>
-            <p>{JSON.stringify(room, null, 2)}</p>
-        </div>
+        images.map(
+            (item, idx) => {
+                console.log(item);
+                return <img src={item} key={idx} width={200} height={100}/>
+            }
+        ))
+}
+    return (
+        <>
+            <div><h2>{room.name}</h2></div>
+            <div>
+            </div>
+            <div className={"images"}>{
+                renderImage(room.images)
+            }</div>
+           
+            <div>
+                <ul>설명 : {room.description}</ul>
+            </div>
+            <div className={"facility"}>
+                <p><h2>시설</h2></p>
+                {renderFacilities(room.facility)}
+            </div>
+        </>
     )
 }
