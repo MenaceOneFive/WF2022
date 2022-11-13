@@ -65,4 +65,9 @@ const renderImage = (images) => {
             </div>
         </>
     )
+    /*
+        <div>
+            <p>{JSON.stringify(room, null, 2)}</p>
+        </div>
+    */
 }
