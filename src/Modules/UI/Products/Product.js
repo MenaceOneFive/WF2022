@@ -43,9 +43,16 @@ const renderImage = (images) => {
         images.map(
             (item, idx) => {
                 console.log(item);
-                return <img src={item} key={idx} width={200} height={100}/>
+                return (
+                <>
+                    <ul>
+                        <li><img src={item} key={idx} width={200} height={100}/></li>
+                    </ul>
+                </>
+                )
             }
-        ))
+        )
+        )
 }
     return (
         <>
@@ -57,7 +64,7 @@ const renderImage = (images) => {
             }</div>
            
             <div>
-                <ul>설명 : {room.description}</ul>
+                <h3>설명 : {room.description}</h3>
             </div>
             <div className={"facility"}>
                 <p><h2>시설</h2></p>
