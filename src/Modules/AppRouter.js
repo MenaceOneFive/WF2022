@@ -13,7 +13,6 @@ import {useEffect} from "react";
 
 function Home() {
     const [auth, isSignIn] = useFBAuth();
-    const signedIn = isSignedIn()
     return (
         <div className='app-container'>
             <header style={{height: 100}}>

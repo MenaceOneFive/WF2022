@@ -12,8 +12,8 @@ import {FBAuthInit} from "./FBAuth";
 // Initialize FirebaseWrapper
 export function FBInit()
 {
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    const app = initializeApp(firebaseConfig)
+    const analytics = getAnalytics(app)
     const auth = FBAuthInit(firebaseConfig)
     return {app, analytics, auth}
 }

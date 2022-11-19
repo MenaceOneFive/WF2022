@@ -4,10 +4,8 @@ import {AppRouter} from "./Modules/AppRouter";
 
 function App() {
     FBInit()
-    return (
-        <AppRouter></AppRouter>
-    )
-        ;
+    return ( <AppRouter></AppRouter> )
+
 }
 
 export default App;

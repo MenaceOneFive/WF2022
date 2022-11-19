@@ -1,5 +1,5 @@
 import { useNavigate} from "react-router-dom";
-import { addUserToDB, getFBAuth, isOverlapUsername} from "../../Firebase/FBAuth";
+import { addUserToDB, getFBAuth, isOverlapUsername} from "../../FirebaseWrapper/FBAuth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 
