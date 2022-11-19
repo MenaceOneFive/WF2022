@@ -1,7 +1,6 @@
 import {getAuth, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 import {Navigate } from "react-router-dom";
 import {useState} from "react";
-import GoogleButton from 'react-google-button'
 
 export const GoogleSignInButton = () => {
     const [redirect, setRedirect] = useState(false)
@@ -17,7 +16,7 @@ export const GoogleSignInButton = () => {
         });
     }
     if (getAuth().currentUser == null || redirect === false) {
-        return (<GoogleButton label="Google 이메일 로그인" onClick={signIn}></GoogleButton>)
+        return (<button onClick={signIn}>로그인</button>)
     } else {
         console.log("이미 로그인되어 있습니다.")
         return (<Navigate to={"/"}/>)
