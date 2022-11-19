@@ -1,6 +1,6 @@
 import { useNavigate} from "react-router-dom";
-import { getFBAuth} from "../../Firebase/FBAuth";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { addUserToDB, getFBAuth, isOverlapUsername} from "../../Firebase/FBAuth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 
 
@@ -26,21 +26,24 @@ export const SignUpPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    /* if(isOverlapUsername(formData.get("username"))) {
-      setError("이미 사용하고 있는 사용자 이름입니다.");
+
+    if(await isOverlapUsername(formData.get("username")) == true) {
+      setError("이미 사용하고 있는 사용자 별명입니다.");
       return;
-    } */
-    if(formData.get("password") != formData.get("password-confirm")) {
+    }
+
+    if(formData.get("password") !== formData.get("password-confirm")) {
       setError("비밀번호 확인이 일치하지 않습니다.");
       return;
     }
+
     try {
       let data = await createUserWithEmailAndPassword(
         auth,
         formData.get("email"),
         formData.get("password")
       );
-      console.log(data);
+      addUserToDB(formData.get("username"), formData.get("email"), data.user.uid)
       navigate("/");
     } catch (error) {
       console.log({ error });
