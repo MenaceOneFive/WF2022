@@ -1,0 +1,18 @@
+
+.date-alert-dialog > .MuiAlert-root {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+.select-date > * {
+    padding: 10px;
+    width: 40%;
+}
+
+.select-date {
+    background: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

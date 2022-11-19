@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+}
+
+article, aside {
+    height: calc(100vh) /*Header와 Footer의 크기가 변경된다면 수정해야함*/
+}
+
+article {
+    flex: 4;
+}
+
+aside {
+    flex: 2;
+    height: 33%;
+}

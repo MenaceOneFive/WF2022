@@ -1,3 +1,6 @@
+import css from '../css/grid.css'
+import {useWindowWidth,} from '@react-hook/window-size'
+
 /**
  * 개별 방을 렌더링 하는 컴포넌트
  * @param loading 로딩 중?
@@ -8,11 +11,18 @@
  * @returns {JSX.Element}
  * @constructor
  */
-export const Room = ({loading, room, style, imageSrc, setMouseEnter}) => {
+export const Room = ({data, style, imageSrc, setMouseEnter}) => {
+    const windowWidth = useWindowWidth()
+    const room = data.room
+    const loading = data.loading
     if (!loading)
         return (
-            <div style={{...style, padding: 20}}>
-                <img src={imageSrc} width={200} height={300}
+            <div style={{
+                ...style, transform: `translate(${(windowWidth / 2) - 300 * 2}px,0)`,
+                padding: 20, position: "absolute"
+            }}>
+                <img src={imageSrc}
+                     style={{width: '100%', height: '66.6%', position: "relative"}}
                      onMouseEnter={() => {
                          setMouseEnter(true)
                      }}
@@ -20,7 +30,8 @@ export const Room = ({loading, room, style, imageSrc, setMouseEnter}) => {
                          setMouseEnter(false)
                      }} alt={room.id}/>
                 <hr/>
-                <div style={{width: 200, height: 100}}>{room.name}</div>
+                <div style={{width: '100%', height: '33.3%', position: "relative"}}>
+                    {room.name}</div>
             </div>)
     else return (
         //TODO: 꾸미기

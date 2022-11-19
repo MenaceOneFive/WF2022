@@ -1,0 +1,17 @@
+/*GuestCount*/
+.guest-count {
+    display: flex;
+    flex-direction: column;
+}
+
+.guest-count > .MuiFormControl-root {
+    margin-left: 40px;
+    margin-top: 20px;
+    width: 40%
+}
+
+.guest-count > .MuiAlert-root {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+}
