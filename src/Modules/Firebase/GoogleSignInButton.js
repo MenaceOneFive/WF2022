@@ -17,7 +17,7 @@ export const GoogleSignInButton = () => {
         });
     }
     if (getAuth().currentUser == null || redirect === false) {
-        return (<GoogleButton onClick={signIn}></GoogleButton>)
+        return (<GoogleButton label="Google 이메일 로그인" onClick={signIn}></GoogleButton>)
     } else {
         console.log("이미 로그인되어 있습니다.")
         return (<Navigate to={"/"}/>)

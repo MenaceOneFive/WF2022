@@ -5,8 +5,7 @@ import {TestPage} from "./TestPage";
 import {SignInPage, SignOutButton, ToSignInPageButton} from "./UI/Common/SignInPage";
 import {getFBAuth, isSignedIn} from "./Firebase/FBAuth";
 import {DrawBanner} from "./UI/MainPage/CarouselBanner";
-import { SignInTest } from "./UI/Common/SignInTest";
-import { SignUpTest } from "./UI/Common/SignUpTest";
+import { SignUpPage } from "./UI/Common/SignUpPage";
 
 function Home() {
     const signedIn = isSignedIn()
@@ -38,8 +37,8 @@ export const AppRouter = () => {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/Welcome" element={<Welcome/>}/>
                 <Route path="/Test" element={<TestPage/>}/>
-                <Route path="/SignIn" element={<SignInTest/>}/>
-                <Route path="/SignUp" element={<SignUpTest/>}/>
+                <Route path="/SignIn" element={<SignInPage/>}/>
+                <Route path="/SignUp" element={<SignUpPage/>}/>
                 <Route path="/Product/:productID" element={<Product/>}/>
             </Routes>
         </BrowserRouter>
