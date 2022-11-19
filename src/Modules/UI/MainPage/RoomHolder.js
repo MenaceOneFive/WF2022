@@ -24,6 +24,6 @@ export const RoomHolder = ({idx, style}) => {
         }, []);
     return (
         <a href={`/Product/${idx}`}>
-            <Room loading={loading} room={data} imageSrc={loading ? "" : data.images[imgIdx]} style={style}
+            <Room data={{room:data,loading}} imageSrc={loading ? "" : data.images[imgIdx]} style={style}
                   setMouseEnter={setMouseEnter}/></a>)
 }
