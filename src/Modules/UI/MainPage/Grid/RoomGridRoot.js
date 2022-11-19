@@ -1,10 +1,10 @@
 import {FixedSizeGrid} from "react-window";
-import {useRoomCollectionLength} from "../../hooks";
+import {useRoomCollectionLength} from "../../../hooks";
 import {RoomHolder} from "./Components/RoomHolder";
 import css from './css/grid.css'
 import { useWindowWidth, } from '@react-hook/window-size'
 import {useEffect} from "react";
-import {Loading} from "../Common/Loading";
+import {Loading} from "../../Common/Loading";
 
 /**
  * 메인페이지에 다양한 방을 무한(유한)스크롤 방식으로

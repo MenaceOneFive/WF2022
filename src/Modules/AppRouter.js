@@ -5,7 +5,7 @@ import {TestPage} from "./TestPage";
 import {SignInPage, SignOutButton, ToSignInPageButton} from "./UI/Common/SignInPage";
 import { SignUpPage } from "./UI/Common/SignUpPage";
 import {getFBAuth, isSignedIn, useFBAuth} from "./FirebaseWrapper/FBAuth";
-import {DrawBanner} from "./UI/Grid/Components/CarouselBanner";
+import {DrawBanner} from "./UI/MainPage/Grid/Components/CarouselBanner";
 import Flight from "./Search/Flight";
 import {CheckoutRoot} from "./UI/Checkout/CheckoutRoot";
 import {MyPageRoot} from "./UI/MyPage/MyPageRoot";

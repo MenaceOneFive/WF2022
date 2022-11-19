@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import {useState} from "react";
-import bootstrap from "../../MainPage/bootstrap.css"
+import bootstrap from "../../bootstrap.css"
 
 const items = [
     "https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg",
