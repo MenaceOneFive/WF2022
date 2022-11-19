@@ -1,4 +1,4 @@
-import {useRoom} from "../../hooks";
+import {useRoom} from "../../../hooks";
 import {useEffect, useRef, useState} from "react";
 import {Room} from "./Room";
 

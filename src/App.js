@@ -1,5 +1,5 @@
 import './App.css';
-import {FBInit} from "./FirebaseWrapper/FBInit";
+import {FBInit} from "./Modules/FirebaseWrapper/FBInit";
 import {AppRouter} from "./Modules/AppRouter";
 
 function App() {

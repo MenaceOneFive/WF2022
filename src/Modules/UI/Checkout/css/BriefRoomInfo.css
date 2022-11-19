@@ -1,0 +1,19 @@
+.room-info {
+    background: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.room-info {
+    align-items: center;
+    padding: 30px;
+}
+
+.room-info > * {
+    cursor: pointer;
+}
+
+.room-info > span {
+    margin-left: 10px;
+}

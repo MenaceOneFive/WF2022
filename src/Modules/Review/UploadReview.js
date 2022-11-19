@@ -1,5 +1,5 @@
 import {collection, doc, getDocs, getFirestore, setDoc} from "firebase/firestore";
-import {FBInit} from "../../FirebaseWrapper/FBInit";
+import {FBInit} from "../FirebaseWrapper/FBInit";
 import {Review, ReviewConverter} from "../../Classes/Review";
 import {useEffect, useState} from "react";
 

@@ -1,27 +1,29 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {MainPage} from "./UI/MainPage/MainPage";
+import {MainPageRoot} from "./UI/MainPage/MainPageRoot";
 import {Product} from "./UI/Products/Product";
 import {TestPage} from "./TestPage";
 import {SignInPage, SignOutButton, ToSignInPageButton} from "./UI/Common/SignInPage";
-import {getFBAuth, isSignedIn} from "../FirebaseWrapper/FBAuth";
-import {DrawBanner} from "./UI/MainPage/CarouselBanner";
+import {getFBAuth, isSignedIn, useFBAuth} from "./FirebaseWrapper/FBAuth";
+import {DrawBanner} from "./UI/Grid/Components/CarouselBanner";
 import Flight from "./Search/Flight";
-import {Checkout} from "./UI/Checkout/Checkout";
+import {CheckoutRoot} from "./UI/Checkout/CheckoutRoot";
 import {MyPageRoot} from "./UI/MyPage/MyPageRoot";
+import {useEffect} from "react";
 
 function Home() {
+    const [auth, isSignIn] = useFBAuth();
     const signedIn = isSignedIn()
     return (
         <div className='app-container'>
             <header style={{height: 100}}>
-                {signedIn ? getFBAuth().currentUser.displayName : ""}
-                {signedIn ? <SignOutButton/> : <ToSignInPageButton/>}
+                {isSignIn? auth.currentUser.displayName : ""}
+                {isSignIn? <SignOutButton/> : <ToSignInPageButton/>}
                 <br/>
             </header>
             <section>
                 <Flight/>
                 <DrawBanner/>
-                <MainPage/>
+                <MainPageRoot/>
             </section>
         </div>
     )
@@ -40,7 +42,7 @@ export const AppRouter = () => {
                 <Route path="/Test" element={<TestPage/>}/>
                 <Route path="/SignIn" element={<SignInPage/>}/>
                 <Route path="/Product/:productID" element={<Product/>}/>
-                <Route path="/Checkout/:checkout" element={<Checkout/>}/>
+                <Route path="/Checkout/:checkout" element={<CheckoutRoot/>}/>
                 <Route path="/MyPage" element={<MyPageRoot/>}/>
             </Routes>
         </BrowserRouter>
