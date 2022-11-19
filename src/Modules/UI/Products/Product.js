@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useRoom, useRoomCollectionLength} from "../../hooks";
 
 export const Product = () => {
@@ -16,10 +16,14 @@ export const Product = () => {
 
 export const ProductDetail = ({idx}) => {
     const [room, loading] = useRoom(idx)
+    const navigate = useNavigate()
     if (loading)
         return (<>{"Hold on, page will be ready soon"}</>)
     return (
         <div>
+            <button onClick={() => {
+                navigate(`/Checkout/${idx}?startDate=${"1970-01-01"}&endDate=${"2022-11-18"}`)
+            }}>예약하기</button>
             <p>{JSON.stringify(room, null, 2)}</p>
         </div>
     )
