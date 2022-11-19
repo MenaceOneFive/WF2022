@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {FBInit} from "../FirebaseWrapper/FBInit";
+import {FBInit} from "./FirebaseWrapper/FBInit";
 import {collection, doc, getDoc, getFirestore} from "firebase/firestore";
 import {ConvertJsonToRoom} from "../Classes/Room";
 

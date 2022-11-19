@@ -1,9 +1,10 @@
 import {FixedSizeGrid} from "react-window";
 import {useRoomCollectionLength} from "../../hooks";
-import {RoomHolder} from "./RoomHolder";
-import css from './grid.css'
+import {RoomHolder} from "./Components/RoomHolder";
+import css from './css/grid.css'
 import { useWindowWidth, } from '@react-hook/window-size'
 import {useEffect} from "react";
+import {Loading} from "../Common/Loading";
 
 /**
  * 메인페이지에 다양한 방을 무한(유한)스크롤 방식으로
@@ -11,7 +12,7 @@ import {useEffect} from "react";
  * @returns {JSX.Element}
  * @constructor
  */
-export const MainPageGrid = () => {
+export const RoomGridRoot = () => {
     const [count, loading] = useRoomCollectionLength()
     const windowWidth =  useWindowWidth()
     //브라우저의 상황에 맞게 동적으로 계산하도록 수정해야함
@@ -33,8 +34,7 @@ export const MainPageGrid = () => {
         </FixedSizeGrid>)
     }
     if (loading) {
-        //TODO: 꾸미기
-        return (<>{"Loading Please be patient......."}</>)
+        return(<Loading/>)
     } else {
         return (
                 <GridLayout/>

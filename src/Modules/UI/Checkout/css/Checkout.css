@@ -1,0 +1,61 @@
+.container {
+    /*border: 1px solid blue;*/
+    display: flex;
+}
+
+article, aside {
+    /*border: 2px solid blue;*/
+    height: calc(100vh) /*Header와 Footer의 크기가 변경된다면 수정해야함*/
+    /*height: calc(100vh - 100px)*/
+}
+
+article {
+    flex: 4;
+}
+
+aside {
+    flex: 2;
+    height: 33%;
+}
+
+article > .order-paper > .order-section {
+    margin-top: 20px;
+}
+
+article > .loading {
+    justify-items: center;
+    align-items: center;
+    width:300px;
+    height:300px;
+    position:absolute;
+    left:50%;
+    top:50%
+}
+
+.customer-info > div {
+    padding-left: 30px;
+}
+
+
+.divider {
+    margin-top: 5px;
+    visibility: hidden;
+}
+
+
+aside > .button {
+    width: 100px;
+}
+
+aside > .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+aside > .container > * {
+    flex: 1;
+}
+

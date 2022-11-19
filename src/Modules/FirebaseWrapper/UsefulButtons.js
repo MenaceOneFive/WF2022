@@ -8,7 +8,7 @@ import {collection, getDocs, addDoc, setDoc, doc} from "firebase/firestore";
 import {FBInit} from "./FBInit";
 import {getFirestore} from 'firebase/firestore'
 import {useState} from "react";
-import {ConvertJsonToRoom, Room, RoomConverter} from "../Classes/Room";
+import {ConvertJsonToRoom, Room, RoomConverter} from "../../Classes/Room";
 
 export const GetSnapshot = () => {
     const [message, setMessage] = useState("");

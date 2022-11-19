@@ -1,4 +1,4 @@
-import css from './grid.css'
+import css from '../css/grid.css'
 import {useWindowWidth,} from '@react-hook/window-size'
 
 /**
