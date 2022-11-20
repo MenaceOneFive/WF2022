@@ -1,6 +1,6 @@
 import {RoomGridRoot} from "./Grid/RoomGridRoot";
 
-export const MainPageRoot = () => {
+export const RoomPageRoot = () => {
     return (<>
         <RoomGridRoot/>
     </>)
