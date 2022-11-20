@@ -8,6 +8,7 @@ import {DrawBanner} from "./UI/MainPage/CarouselBanner";
 import Flight from "./Search/Flight";
 import {TourGuide} from "./TourGuide/TourGuide";
 import {City} from "./TourGuide/City";
+import {Place} from './TourGuide/Place';
 
 function Home() {
     const signedIn = isSignedIn()
@@ -42,6 +43,7 @@ export const AppRouter = () => {
                 <Route path="/SignIn" element={<SignInPage/>}/>
                 <Route path="/Product/:productID" element={<Product/>}/>
                 <Route path="/CityDetail/:cityeng" element={<City/>}/>
+                <Route path="/CityDetail/Place/:namecode" element={<Place/>}/>
             </Routes>
         </BrowserRouter>
     )

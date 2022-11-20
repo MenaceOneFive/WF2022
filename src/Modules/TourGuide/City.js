@@ -28,8 +28,10 @@ export const CityDetail = ({citycode}) => {
                     {detailList.map((item, i) => {return (
                         !(item.type === "즐길거리") ? "" :
                         <div className="popularPlaceDetail" key={i}>
-                            <span>{item.name}</span><br/>
-                            <span>"{item.semitype}"</span>
+                            <a href={`/CityDetail/Place/${item.namecode}`}>
+                                <span>{item.name}</span><br/>
+                                <span>"{item.semitype}"</span>
+                            </a>
                         </div>
                     )})}
                 </div>
@@ -37,8 +39,10 @@ export const CityDetail = ({citycode}) => {
                     {detailList.map((item, i) => {return (
                         !(item.type === "추천 레스토랑") ? "" :
                         <div className="restaurantDetail" key={i}>
-                            <span>{item.name}</span><br/>
-                            <span>"{item.semitype}"</span>
+                            <a href={`/CityDetail/Place/${item.namecode}`}>
+                                <span>{item.name}</span><br/>
+                                <span>"{item.semitype}"</span>
+                            </a>
                         </div>
                     )})}
                 </div>
