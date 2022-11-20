@@ -1,5 +1,4 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {MainPageRoot} from "./UI/MainPage/MainPageRoot";
+import {BrowserRouter, Link, NavLink, Route, Routes} from "react-router-dom";
 import {Product} from "./UI/Products/Product";
 import {TestPage} from "./TestPage";
 import {SignInPage, SignOutButton, ToSignInPageButton} from "./UI/Common/SignInPage";
@@ -8,29 +7,8 @@ import {getFBAuth, isSignedIn, useFBAuth} from "./FirebaseWrapper/FBAuth";
 import {DrawBanner} from "./UI/MainPage/Grid/Components/CarouselBanner";
 import Flight from "./Search/Flight";
 import {CheckoutRoot} from "./UI/Checkout/CheckoutRoot";
-import {MyPageRoot} from "./UI/MyPage/MyPageRoot";
 import {useEffect} from "react";
-
-function Home() {
-    const [auth, isSignIn] = useFBAuth();
-    return (
-        <div className='app-container'>
-            <header style={{height: 100}}>
-                {isSignIn? auth.currentUser.displayName : ""}
-                {isSignIn? <SignOutButton/> : <ToSignInPageButton/>}
-                <br/>
-            </header>
-            <section>
-                <DrawBanner/>
-                <MainPageRoot/>
-            </section>
-        </div>
-    )
-}
-
-const Welcome = () => {
-    return (<p>Welcome</p>)
-}
+import { FlightPage, Home, MyPage, RoomPage, Welcome } from "./UI/Pages";
 
 export const AppRouter = () => {
     return (
@@ -43,7 +21,9 @@ export const AppRouter = () => {
                 <Route path="/SignUp" element={<SignUpPage/>}/>
                 <Route path="/Product/:productID" element={<Product/>}/>
                 <Route path="/Checkout/:checkout" element={<CheckoutRoot/>}/>
-                <Route path="/MyPage" element={<MyPageRoot/>}/>
+                <Route path="/MyPage" element={<MyPage/>}/>
+                <Route path="/FlightPage" element={<FlightPage />} />
+                <Route path="/RoomPage" element={<RoomPage/>} />
             </Routes>
         </BrowserRouter>
     )
