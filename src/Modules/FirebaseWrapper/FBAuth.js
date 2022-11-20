@@ -27,10 +27,16 @@ export const useFBAuth = () => {
     const [isSignIn, setIsSignIn] = useState(false)
     useEffect(() => {
         const unSubscribe = auth.onAuthStateChanged((usr) => {
-            if (usr.uid !== "") {
-                setAuth(auth)
-                setIsSignIn(true)
-            } else {
+            if (usr !== null) {
+                if (usr.uid !== "") {
+                    setAuth(auth)
+                    setIsSignIn(true)
+                } else {
+                    setAuth(auth)
+                    setIsSignIn(false)
+                }
+            }
+            else{
                 setAuth(auth)
                 setIsSignIn(false)
             }
@@ -72,21 +78,19 @@ export const signOut = () => {
 
 export const isOverlapUsername = async (_username) => {
     var flag = false
-
     const {app} = FBInit()
     const db = getFirestore(app);
     const docRef = collection(db, "users");
     await getDocs(docRef).then((result) => {
         result.forEach((user) => {
                 const data = user.data();
-                if(data.username === _username) {
+                if (data.username === _username) {
                     console.log("search is success");
                     flag = true
                 }
             }
         )
     })
-
     return flag
 }
 
