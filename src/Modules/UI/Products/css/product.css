@@ -112,3 +112,7 @@ table {
 .facility>ul>li>ul>li{
   padding-left: 10px;
 }
+
+.appbarbg{
+  background-color: #484848 !important;
+}
