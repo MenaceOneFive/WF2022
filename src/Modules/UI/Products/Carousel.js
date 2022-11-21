@@ -8,28 +8,24 @@ const Carousel = ({images}) => {
         dots: true,
         infinite: true,
         speed: 1000,
-        fade:true
+        fade: true
     }
 
-    return(
-        <div className="carousel">
-            <Slider {...settings}>
-                <div>
-                    <img src={images[0]} />
-                </div>
-                <div>
-                    <img src={images[1]} />
-                </div>
-                <div>
-                    <img src={images[2]} />
-                </div>
-                <div>
-                    <img src={images[3]} />
-                </div>
-                <div>
-                    <img src={images[4]} />
-                </div>
-            </Slider>
+    return (
+        <div className="slide-container">
+            <div className="carousel">
+                <Slider {...settings}>
+                    {images.map(
+                        (item, idx) => {
+                            return (
+                                <div key={idx}>
+                                    <img  src={item}/>
+                                </div>
+                            )
+                        }
+                    )}
+                </Slider>
+            </div>
         </div>
     )
 }

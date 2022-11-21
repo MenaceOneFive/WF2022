@@ -7,34 +7,54 @@ import DenseAppBar from "./RoomName";
 import BasicTable from "./Facilities";
 import AlertDialog from "./Description";
 import BasicButtons from "./Reservation";
+import {PageTemplate} from "../Pages";
+import Paper from "@mui/material/Paper";
+import {DatePickers} from "../Checkout/Components/DatePickers";
+import {useState} from "react";
+import dayjs, {Dayjs} from "dayjs";
 
 export const Product = () => {
     const params = useParams();
     const [length, loading] = useRoomCollectionLength()
     const roomID = params.productID
     //TODO: roomID를 검증해서 범위에서 벗어나면 강제로 이동시킬 것
-    if (loading){
+    if (loading) {
         return (<Loading/>)
     }
-    if(length < roomID)
+    if (length < roomID)
         console.error("outOfIndexErr")
     return (<ProductDetail idx={roomID}/>)
 }
 
 export const ProductDetail = ({idx}) => {
     const [room, loading] = useRoom(idx)
+    const [startDate, setStartDate] = useState(dayjs())
+    const [endDate, setEndDate] = useState(dayjs().add(1, 'day'))
     const navigate = useNavigate()
-    if (loading){
+    if (loading) {
         return (<Loading/>)
     }
-   //결과 화면
+    //결과 화면
     return (
         <>
-        <DenseAppBar name={room.name} />   
-        <Carousel images={room.images}/>
-        <AlertDialog name={room.name} description={room.description} />
-        <BasicTable facility = {room.facility}/>
-        <BasicButtons idx={idx}/>
+            <PageTemplate>
+                <div className="container">
+                    <article>
+                        <Paper elevation={15}>
+                            <DenseAppBar name={room.name}/>
+                            <Carousel images={room.images}/>
+                            <AlertDialog name={room.name} description={room.description}/>
+                            <BasicTable facility={room.facility}/>
+                        </Paper>
+                    </article>
+                    <aside>
+                        <Paper sx={{width: '100px'}} elevation={12}>
+                            <DatePickers start={{startDate, setStartDate}} end={{endDate, setEndDate}}></DatePickers>
+                            <BasicButtons idx={idx}/>
+                        </Paper>
+                    </aside>
+                </div>
+            </PageTemplate>
         </>
     )
 }
