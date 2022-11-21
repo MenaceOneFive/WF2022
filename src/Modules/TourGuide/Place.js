@@ -1,6 +1,7 @@
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Map } from './Map';
 import tourData from '../../Data/tourData';
-import cityData from '../../Data/cityData';
+
 
 export const Place = () => {
 
@@ -13,7 +14,7 @@ export const Place = () => {
 export const PlaceDetail = ({placename}) => {
 
   const detail = tourData.filter(data => data.namecode === placename)[0];
-  console.log(detail);
+  const markers = tourData.filter(data => data.cityeng === detail.cityeng);
 
   return (
     <div className="PlaceDetail">
@@ -21,13 +22,15 @@ export const PlaceDetail = ({placename}) => {
       <span>"{detail.semitype}"</span>
       {(detail.ticket === "무료") ? "" :
       (detail.ticket.map((data, i) => { return (
-        <div className="PlaceTicket">
+        <div className="PlaceTicket" key={i}>
           <h4>{data.ticketname}</h4>
           <span>{data.age}</span>
           <span>{data.price}</span>
         </div>
       )}))}
       <div className="PlaceExplaination">{detail.explain}</div>
+      <Map detail={detail} markers={markers} />
     </div>
   )
 }
+// 

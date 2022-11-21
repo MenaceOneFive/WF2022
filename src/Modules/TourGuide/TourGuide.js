@@ -5,7 +5,6 @@ import seoul from './seoul.jpg';
 import jeju from './jeju.jpg';
 import osaka from './osaka.jpg';
 import fukuoka from './fukuoka.jpg';
-import tourData from '../../Data/tourData';
 import cityData from '../../Data/cityData';
 
 const cityImages = [seoul, jeju, osaka, fukuoka];
