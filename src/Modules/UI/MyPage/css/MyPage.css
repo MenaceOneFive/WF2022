@@ -3,7 +3,7 @@
 }
 
 article, aside {
-    height: calc(100vh) /*Header와 Footer의 크기가 변경된다면 수정해야함*/
+    height: calc(70vh) /*Header와 Footer의 크기가 변경된다면 수정해야함*/
 }
 
 article {

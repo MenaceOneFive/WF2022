@@ -7,6 +7,7 @@ import Flight from "../Search/Flight";
 import {MyPageRoot} from "./MyPage/MyPageRoot";
 
 import "./pages.css";
+import {TourGuide} from "../TourGuide/TourGuide";
 
 export const Home = () => {
     const [auth, isSignIn] = useFBAuth();
@@ -33,10 +34,10 @@ export const MainMenu = () => {
             <Link to="/RoomPage" style={{marginLeft: "30px"}}>
                 숙소
             </Link>
-            <Link to="/flightPage" style={{marginLeft: "30px"}}>
+            <Link to="/FlightPage" style={{marginLeft: "30px"}}>
                 항공권
             </Link>
-            <Link to="/" style={{marginLeft: "30px"}}>
+            <Link to="/TourGuide" style={{marginLeft: "30px"}}>
                 여행지
             </Link>
 
@@ -82,6 +83,13 @@ export const MyPage = () => {
     return (
         <PageTemplate>
             <MyPageRoot/>
+        </PageTemplate>
+    );
+};
+export const TourGuidePage= () => {
+    return (
+        <PageTemplate>
+            <TourGuide/>
         </PageTemplate>
     );
 };

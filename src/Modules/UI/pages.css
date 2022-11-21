@@ -1,6 +1,10 @@
-  .main-menu {
-    display:flex;
+.main-menu {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-color:#f3f3f3;
+    background-color: #f3f3f3;
     padding: 20px 24px;
-  }
+    height: calc(10vh);
+}
+.main-menu > *{
+}
