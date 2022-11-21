@@ -12,7 +12,7 @@ import Paper from "@mui/material/Paper";
 import {DatePickers} from "../Checkout/Components/DatePickers";
 import {useState} from "react";
 import dayjs, {Dayjs} from "dayjs";
-import {ReviewSection} from "../../Review/UploadReview";
+import {ReviewSection} from "../../Review/ReviewSection";
 
 export const Product = () => {
     const params = useParams();

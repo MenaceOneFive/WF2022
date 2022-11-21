@@ -35,6 +35,6 @@ export const Room = ({data, style, imageSrc, setMouseEnter}) => {
             </div>)
     else return (
         //TODO: 꾸미기
-        <>{"Loading!"}</>
+        <></>
     )
 }

@@ -1,0 +1,51 @@
+.write-review-container {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 80%;
+}
+
+.write-review-container > .MuiPaper-root > div {
+    display: flex;
+    font-size: 25px;
+    padding: 20px 30px;
+}
+
+.write-review-container > .MuiPaper-root > div > .MuiAvatar-root {
+    margin-right: 20px;
+}
+
+textarea {
+    width: 80%;
+    height: 100px;
+    resize: none;
+}
+
+.write-review-container > .MuiPaper-root > div > .MuiButton-root {
+    width: 20%
+}
+
+.write-review-container > .MuiPaper-root > .not-logged-in {
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+}
+
+.read-review-container {
+    margin: 30px 10px;
+    height: 150px;
+}
+
+.read-review-container > #no-review {
+    font-size: 25px;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+}
+
+.MuiCardContent-root > .use-avatar {
+    margin: 10px 0px;
+}
+
+.MuiCardContent-root {
+   font-size: 25px;
+}
