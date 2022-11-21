@@ -12,6 +12,7 @@ import Paper from "@mui/material/Paper";
 import {DatePickers} from "../Checkout/Components/DatePickers";
 import {useState} from "react";
 import dayjs, {Dayjs} from "dayjs";
+import {ReviewSection} from "../../Review/UploadReview";
 
 export const Product = () => {
     const params = useParams();
@@ -46,6 +47,7 @@ export const ProductDetail = ({idx}) => {
                             <AlertDialog name={room.name} description={room.description}/>
                             <BasicTable facility={room.facility}/>
                         </Paper>
+                        <ReviewSection idx={idx}/>
                     </article>
                     <aside>
                         <Paper sx={{width: '100px'}} elevation={12}>

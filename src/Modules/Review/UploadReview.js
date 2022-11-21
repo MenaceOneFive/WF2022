@@ -2,25 +2,25 @@ import {collection, doc, getDocs, getFirestore, setDoc} from "firebase/firestore
 import {FBInit} from "../FirebaseWrapper/FBInit";
 import {Review, ReviewConverter} from "../../Classes/Review";
 import {useEffect, useState} from "react";
+import {useFBAuth} from "../FirebaseWrapper/FBAuth";
 
-export const ReviewSection = ({room, userState}) => {
+export const ReviewSection = ({idx}) => {
     return (
         <div>
-            <DrawReviews room={room}/>
-            <WriteReview room={room} user={userState}/>
+            <DrawReviews idx={idx}/>
+            <WriteReview idx={idx} />
         </div>
     )
 }
-const DrawReviews = ({room}) => {
-    return ReadReviewsFromStorage(room)
+const DrawReviews = ({idx}) => {
+    return ReadReviewsFromStorage(idx)
 }
 
-const ReadReviewsFromStorage = (room) => {
+const ReadReviewsFromStorage = (idx) => {
     const [reviews, setReviews] = useState([]);
     const app = FBInit().app;
     const db = getFirestore(app);
-    // const docRef = doc(db, "cities", "SF");
-    const docRef = collection(db, `rooms/${room.id}/reviews`);
+    const docRef = collection(db, `rooms/item[${idx}]/reviews`);
     useEffect(() => {
         getDocs(docRef)
             .then((result) => {
@@ -38,7 +38,7 @@ const ReadReviewsFromStorage = (room) => {
             console.log(reason)
             return (<></>)
         });
-    }, [room])
+    }, [idx])
     console.log(reviews)
     if (reviews.length === 0)
         return (<></>)
@@ -63,16 +63,18 @@ const UserNotSignedIn = () => {
     return (<><p>아직 로그인 하지 않으셨네요</p></>)
 }
 
-const WriteReview = ({room, user}) => {
+const WriteReview = ({idx}) => {
+    const [auth,isSignIn] = useFBAuth()
     const [innerText, setInnerText] = useState("")
     const SetText = (e) => setInnerText(e.target.value)
+    const user = auth.currentUser
 
     const uploadReview = () => {
         const review = new Review();
         review.stars = 3
         review.uid = user.uid
         review.review = innerText
-        WriteReviewToStorage(room, review)
+        WriteReviewToStorage(idx, review)
     }
     if (user != null) {
         return (
@@ -88,12 +90,12 @@ const WriteReview = ({room, user}) => {
     return <UserNotSignedIn/>
 }
 
-const WriteReviewToStorage = (room, review) => {
+const WriteReviewToStorage = (idx, review) => {
     const app = FBInit().app;
     const db = getFirestore(app);
-    setDoc(doc(db, `rooms/${room.id}/reviews`, review.uid).withConverter(ReviewConverter),
+    setDoc(doc(db, `rooms/item[${idx}]/reviews`, review.uid).withConverter(ReviewConverter),
         review
     ).then((result) => {
-        console.log(`wrote record of ${room.id}`)
+        console.log(`wrote record of ${idx}`)
     })
 }
