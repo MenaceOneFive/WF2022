@@ -39,14 +39,16 @@ export const SignUpPage = () => {
         }
 
         try {
-            let data = await createUserWithEmailAndPassword(
+            createUserWithEmailAndPassword(
                 auth,
                 formData.get("email"),
                 formData.get("password")
-            );
-            updateProfile(auth.currentUser,{displayName: formData.get("username")}).then();
-            addUserToDB(formData.get("username"), formData.get("email"), data.user.uid)
-            navigate("/");
+            ).then((data) => {
+                updateProfile(auth.currentUser, {displayName: formData.get("username")}).then(() => {
+                    addUserToDB(formData.get("username"), formData.get("email"), data.user.uid)
+                    navigate("/");
+                })
+            })
         } catch (error) {
             console.log({error});
             switch (error.code) {
