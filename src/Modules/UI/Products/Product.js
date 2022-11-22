@@ -4,7 +4,7 @@ import {Loading} from "../Common/Loading";
 import './css/product.css'
 import Carousel from "./Carousel";
 import DenseAppBar from "./RoomName";
-import BasicTable from "./Facilities";
+import SimpleAccordion from "./Facilities"
 import AlertDialog from "./Description";
 import BasicButtons from "./Reservation";
 import {PageTemplate} from "../Pages";
@@ -45,7 +45,7 @@ export const ProductDetail = ({idx}) => {
                             <DenseAppBar name={room.name}/>
                             <Carousel images={room.images}/>
                             <AlertDialog name={room.name} description={room.description}/>
-                            <BasicTable facility={room.facility}/>
+                            <SimpleAccordion facility={room.facility}/>
                         </Paper>
                         <ReviewSection idx={idx}/>
                     </article>
@@ -96,4 +96,6 @@ export const ProductDetail = ({idx}) => {
             }}>예약하기</button>
         </div>
         )
+        //
+        <BasicTable facility={room.facility}/>
 */
