@@ -1,7 +1,10 @@
 import { useParams } from "react-router-dom";
 import { Map } from './Map';
 import tourData from '../../Data/tourData';
-
+import Carousel from "./Slider";
+import "./css/place.css"
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css'
 
 export const Place = () => {
 
@@ -28,6 +31,7 @@ export const PlaceDetail = ({placename}) => {
           <span>{data.price}</span>
         </div>
       )}))}
+      <Carousel images={detail.image} />
       <div className="PlaceExplaination">{detail.explain}</div>
       <Map detail={detail} markers={markers} />
     </div>

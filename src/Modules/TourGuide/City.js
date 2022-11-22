@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import tourData from '../../Data/tourData';
 import cityData from '../../Data/cityData';
+import "./css/place.css"
 
 export const City = () => {
 
@@ -27,10 +28,13 @@ export const CityDetail = ({citycode}) => {
                 <div className="popularPlaceList">
                     {detailList.map((item, i) => {return (
                         !(item.type === "즐길거리") ? "" :
-                        <div className="popularPlaceDetail" key={i}>
-                            <a href={`/CityDetail/Place/${item.namecode}`}>
-                                <span>{item.name}</span><br/>
+                        <div className="placeDetail-container" key={i}>
+                            <a href={`/CityDetail/Place/${item.namecode}`} className="placeLink">
+                                <img src={item.image[0]} width={250} height={200}/>
+                               <div className="popular-info">
+                                <h4>{item.name}</h4>
                                 <span>"{item.semitype}"</span>
+                                </div>
                             </a>
                         </div>
                     )})}
@@ -38,10 +42,13 @@ export const CityDetail = ({citycode}) => {
                 <div className="restaurantList">
                     {detailList.map((item, i) => {return (
                         !(item.type === "추천 레스토랑") ? "" :
-                        <div className="restaurantDetail" key={i}>
-                            <a href={`/CityDetail/Place/${item.namecode}`}>
-                                <span>{item.name}</span><br/>
-                                <span>"{item.semitype}"</span>
+                        <div className="placeDetail-container" key={i}>
+                            <a href={`/CityDetail/Place/${item.namecode}`} className="placeLink">
+                            <img src={item.image[0]} width={250} height={200}/>
+                            <div className="popular-info">
+                            <h4>{item.name}</h4>
+                            <span>"{item.semitype}"</span>
+                            </div>
                             </a>
                         </div>
                     )})}
@@ -50,3 +57,8 @@ export const CityDetail = ({citycode}) => {
         </div>
     )
 }
+/*
+    <div className="popularPlaceDetail" key={i}>
+    <div className="restaurantDetail" key={i}>
+
+*/
