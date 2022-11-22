@@ -1,12 +1,14 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Product} from "./UI/Products/Product";
 import {TestPage} from "./TestPage";
-import {SignInPage} from "./UI/Common/SignInPage";
+import {SignInPage, SignOutButton, ToSignInPageButton} from "./UI/Common/SignInPage";
+import { SignUpPage } from "./UI/Common/SignUpPage";
+import {getFBAuth, isSignedIn, useFBAuth} from "./FirebaseWrapper/FBAuth";
+import Flight from "./Search/Flight";
 import {City} from "./TourGuide/City";
 import {Place} from './TourGuide/Place';
 import {CheckoutRoot} from "./UI/Checkout/CheckoutRoot";
 import {FlightPage, Home, MyPage, RoomPage, TourGuidePage, Welcome} from "./UI/Pages";
-import {SignUpPage} from "./UI/Common/SignUpPage";
 
 
 export const AppRouter = () => {

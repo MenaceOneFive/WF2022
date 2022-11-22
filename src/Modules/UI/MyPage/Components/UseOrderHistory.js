@@ -31,6 +31,7 @@ export const useOrderHistory = (uid) => {
                 return (res.docs.length > 0) ? res.docs[0] : ""
             };
             res().then(
+                setLoading(false)
                 //Do nothing
             );
         }

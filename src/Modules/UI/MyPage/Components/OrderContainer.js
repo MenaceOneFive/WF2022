@@ -1,7 +1,10 @@
 import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import {EnumerateOrders} from "./EnumerateOrders";
+import {Loading} from "../../Common/Loading";
 
 export const OrderContainer = ({orders, loading}) => {
+    if (loading)
+        return (<Loading/>)
     return (
         <TableContainer sx={{minWidth: 800}} component={Paper}>
             <Table sx={{minWidth: 650}} aria-label="Order-table">

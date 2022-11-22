@@ -21,7 +21,7 @@ export const WriteReview = ({idx}) => {
         review.review = innerText
         WriteReviewToStorage(idx, review)
     }
-    if (user != null) {
+    if (user != null && isSignIn) {
         return (
             <>
                 <div className="write-review-container">
