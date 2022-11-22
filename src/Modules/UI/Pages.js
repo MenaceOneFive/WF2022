@@ -9,14 +9,85 @@ import "./grid.min.css"
 import "./style.css";
 import headerImg from "./assets/header.png";
 import {TourGuide} from "../TourGuide/TourGuide";
+import { signOut } from "../FirebaseWrapper/FBAuth";
 
 export const Home = () => {
-    const [auth, isSignIn] = useFBAuth();
     return (
         <>
-            <MainMenu/>
-            <DrawBanner/>
-            <RoomPageRoot/>
+       <PageTemplate>
+    <div class="main-image">
+        <h1 class="main-image-h1">자유를 찾아 떠나는<br/><strong>"여행"</strong></h1>
+    </div>
+
+    <div class="container">
+        <div class="destination-recommendation">
+            <div class="row">
+                <div class="col-12">
+                    <h1>가장 핫한 여행지 추천</h1>
+                </div>
+                <div class="col-12">
+                    <p>나만의 여행지를 발견해봐요~</p>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-4">
+                    <a href="#" class="destination-img1"></a>
+                </div>
+                <div class="col-4">
+                    <a href="#" class="destination-img2"></a>
+                </div>
+                <div class="col-4">
+                    <a href="#" class="destination-img3"></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="go-destination">
+                        <Link to="/TourGuide" class="text-link go-destination-page">여행지 더보기
+                        </Link>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+    
+    <div class="container">
+        <div class="hotel-recommendation">
+            <div class="row">
+                <div class="col-12">
+                    <h1>내가 찾던 바로 그곳!</h1>
+                </div>
+                <div class="col-12">
+                    <p>내 삶에 특별한 선물을 줄 수 있는 이번이 마지막 기회!</p>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-12">
+                    <a href="#" class="hotel-img"></a>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="go-destination">
+                        <Link to="/RoomPage" class="text-link go-destination-page">호텔 더보기
+                        </Link>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </PageTemplate>
         </>
     );
 };
@@ -27,6 +98,10 @@ export const Welcome = () => {
 
 export const MainMenu = () => {
     const [auth, isSignIn] = useFBAuth();
+    const signOutMethod = async () => {
+        await signOut();
+        window.location.reload();
+    }
     return (
         <>
         <div class="container">
@@ -61,91 +136,29 @@ export const MainMenu = () => {
                         </form>
                     </div>
                 </div>
-                
-                <div class="col-1">
-                    <Link to="/MyPage" class="sign-in-button text-link">로그인</Link>
-                </div>
-
-                <div class="col-1">
-                    <Link to="/SignUp" class="sign-up-button text-link">회원가입</Link>
-                </div>   
+                {isSignedIn() ?
+                    <>
+                        <div class="col-1">
+                            <Link to="#" onClick={signOutMethod} class="sign-in-button">로그아웃</Link>
+                        </div>
+                        <div class="col-1">
+                            <Link to="/MyPage" class="sign-up-button">마이페이지</Link>
+                        </div> 
+                    </>
+                    :
+                    <>
+                        <div class="col-1">
+                            <Link to="/SignIn" class="sign-in-button">로그인</Link>
+                        </div>
+                        <div class="col-1">
+                            <Link to="/SignUp" class="sign-up-button">회원가입</Link>
+                        </div>
+                    </> 
+                }   
             </div>     
         </div>
     </div>
-           
-    <div class="main-image">
-        <h1 class="main-image-h1">자유를 찾아 떠나는<br/><strong>"여행"</strong></h1>
-    </div>
-
-    <div class="container">
-        <div class="destination-recommendation">
-            <div class="row">
-                <div class="col-12">
-                    <h1>가장 핫한 여행지 추천</h1>
-                </div>
-                <div class="col-12">
-                    <p>나만의 여행지를 발견해봐요~</p>
-                </div>
-            </div>
-           
-            <div class="row">
-                <div class="col-4">
-                    <a href="#" class="destination-img1"></a>
-                </div>
-                <div class="col-4">
-                    <a href="#" class="destination-img2"></a>
-                </div>
-                <div class="col-4">
-                    <a href="#" class="destination-img3"></a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <div class="go-destination">
-                        <Link to="/TourGuide" class="go-destination-page text-link">여행지 더보기
-                        </Link>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="line"></div>
-    
-    <div class="container">
-        <div class="hotel-recommendation">
-            <div class="row">
-                <div class="col-12">
-                    <h1>내가 찾던 바로 그곳!</h1>
-                </div>
-                <div class="col-12">
-                    <p>내 삶에 특별한 선물을 줄 수 있는 이번이 마지막 기회!</p>
-                </div>
-            </div>
-           
-            <div class="row">
-                <div class="col-12">
-                    <a href="#" class="hotel-img"></a>
-                </div>
-                
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <div class="go-destination">
-                        <Link to="/RoomPage" class="go-destination-page text-link">호텔 더보기
-                        </Link>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-        </>
+    </>
     );
 };
 

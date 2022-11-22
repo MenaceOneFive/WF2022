@@ -160,7 +160,7 @@ export const ToSignInPageButton = () => {
 
 export const SignOutButton = () => {
     return (
-        <button
+        <button className="sing-in-button"
             onClick={() => {
                 signOut();
                 window.location.reload();
