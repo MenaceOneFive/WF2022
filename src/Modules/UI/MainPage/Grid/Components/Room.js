@@ -33,6 +33,8 @@ export const Room = ({data, style, imageSrc, setMouseEnter}) => {
                 <div style={{width: '100%', height: '33.3%', position: "relative"}}>
                     {room.name}</div>
             </div>)
-    else return (<></>
+    else return (
+        //TODO: 꾸미기
+        <></>
     )
 }
