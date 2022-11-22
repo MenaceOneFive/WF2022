@@ -9,7 +9,7 @@ export const MyPageRoot = () => {
     if (!isSignIn) {
         return (
             <>
-                <p>로딩중</p>
+                <p>로그인이 필요합니다</p>
             </>
         )
     }
