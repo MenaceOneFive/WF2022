@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import tourData from '../../Data/tourData';
 import cityData from '../../Data/cityData';
+import Box from '@mui/material/Box';
 
 export const City = () => {
 
@@ -18,35 +19,35 @@ export const CityDetail = ({citycode}) => {
     console.log(detailList);
 
     return (
-        <div className="cityDetail">
+        <Box className="cityDetail">
             <h2>{detail.city}</h2>
             <h4>{detail.city} 여행 가이드</h4>
-            <span>{detail.explaination}</span>
+            <Box component="span">{detail.explaination}</Box>
             <h4>{detail.city} 여행 즐기기</h4>
-            <div className="placeList">
-                <div className="popularPlaceList">
+            <Box className="placeList">
+                <Box className="popularPlaceList">
                     {detailList.map((item, i) => {return (
                         !(item.type === "즐길거리") ? "" :
-                        <div className="popularPlaceDetail" key={i}>
+                        <Box className="popularPlaceDetail" key={i}>
                             <a href={`/CityDetail/Place/${item.namecode}`}>
-                                <span>{item.name}</span><br/>
-                                <span>"{item.semitype}"</span>
+                                <Box component="span">{item.name}</Box><br/>
+                                <Box component="span">"{item.semitype}"</Box>
                             </a>
-                        </div>
+                        </Box>
                     )})}
-                </div>
-                <div className="restaurantList">
+                </Box>
+                <Box className="restaurantList">
                     {detailList.map((item, i) => {return (
                         !(item.type === "추천 레스토랑") ? "" :
-                        <div className="restaurantDetail" key={i}>
+                        <Box className="restaurantDetail" key={i}>
                             <a href={`/CityDetail/Place/${item.namecode}`}>
-                                <span>{item.name}</span><br/>
-                                <span>"{item.semitype}"</span>
+                                <Box component="span">{item.name}</Box><br/>
+                                <Box component="span">"{item.semitype}"</Box>
                             </a>
-                        </div>
+                        </Box>
                     )})}
-                </div>
-            </div>
-        </div>
+                </Box>
+            </Box>
+        </Box>
     )
 }

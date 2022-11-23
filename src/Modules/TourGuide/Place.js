@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Map } from './Map';
 import tourData from '../../Data/tourData';
-
+import Box from '@mui/material/Box';
 
 export const Place = () => {
 
@@ -17,20 +17,20 @@ export const PlaceDetail = ({placename}) => {
   const markers = tourData.filter(data => data.cityeng === detail.cityeng);
 
   return (
-    <div className="PlaceDetail">
+    <Box className="PlaceDetail">
       <h2>{detail.name}</h2>
-      <span>"{detail.semitype}"</span>
+      <Box component="span">"{detail.semitype}"</Box>
       {(detail.ticket === "무료") ? "" :
       (detail.ticket.map((data, i) => { return (
-        <div className="PlaceTicket" key={i}>
+        <Box className="PlaceTicket" key={i}>
           <h4>{data.ticketname}</h4>
-          <span>{data.age}</span>
-          <span>{data.price}</span>
-        </div>
+          <Box component="span">{data.age}</Box>
+          <Box component="span">{data.price}</Box>
+        </Box>
       )}))}
-      <div className="PlaceExplaination">{detail.explain}</div>
+      <Box className="PlaceExplaination">{detail.explain}</Box>
       <Map detail={detail} markers={markers} />
-    </div>
+    </Box>
   )
 }
 // 
