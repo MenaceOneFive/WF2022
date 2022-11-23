@@ -20,9 +20,12 @@ export const CityDetail = ({citycode}) => {
 
     return (
         <div className="cityDetail">
+            <div className="cityGuid">
             <h2>{detail.city}</h2>
             <h4>{detail.city} 여행 가이드</h4>
             <span>{detail.explaination}</span>
+            </div>
+            <div className="totalList">
             <h4>{detail.city} 여행 즐기기</h4>
             <div className="placeList">
                 <div className="popularPlaceList">
@@ -30,7 +33,7 @@ export const CityDetail = ({citycode}) => {
                         !(item.type === "즐길거리") ? "" :
                         <div className="placeDetail-container" key={i}>
                             <a href={`/CityDetail/Place/${item.namecode}`} className="placeLink">
-                                <img src={item.image[0]} width={250} height={200}/>
+                                <img src={item.image[0]} width={250} height={150}/>
                                <div className="popular-info">
                                 <h4>{item.name}</h4>
                                 <span>"{item.semitype}"</span>
@@ -44,7 +47,7 @@ export const CityDetail = ({citycode}) => {
                         !(item.type === "추천 레스토랑") ? "" :
                         <div className="placeDetail-container" key={i}>
                             <a href={`/CityDetail/Place/${item.namecode}`} className="placeLink">
-                            <img src={item.image[0]} width={250} height={200}/>
+                            <img src={item.image[0]} width={250} height={150}/>
                             <div className="popular-info">
                             <h4>{item.name}</h4>
                             <span>"{item.semitype}"</span>
@@ -52,6 +55,7 @@ export const CityDetail = ({citycode}) => {
                             </a>
                         </div>
                     )})}
+                </div>
                 </div>
             </div>
         </div>

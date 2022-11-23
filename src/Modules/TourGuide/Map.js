@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import "./css/place.css"
 
 
 const getInfoWindowString = (place) => `

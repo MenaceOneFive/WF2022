@@ -3,6 +3,7 @@ import { Map } from './Map';
 import tourData from '../../Data/tourData';
 import Carousel from "./Slider";
 import "./css/place.css"
+import "./css/reset.css"
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'
 
@@ -21,19 +22,30 @@ export const PlaceDetail = ({placename}) => {
 
   return (
     <div className="PlaceDetail">
+      <div className="placeName">
       <h2>{detail.name}</h2>
-      <span>"{detail.semitype}"</span>
-      {(detail.ticket === "무료") ? "" :
-      (detail.ticket.map((data, i) => { return (
-        <div className="PlaceTicket" key={i}>
-          <h4>{data.ticketname}</h4>
-          <span>{data.age}</span>
-          <span>{data.price}</span>
-        </div>
-      )}))}
+      <p>"{detail.semitype}"</p>
+      </div>
       <Carousel images={detail.image} />
-      <div className="PlaceExplaination">{detail.explain}</div>
-      <Map detail={detail} markers={markers} />
+      {(detail.ticket === "무료") ? "" : <div className="ticket_wrapper"> {
+      (detail.ticket.map((data, i) => { return (
+        <div className="PlaceTicket" >
+          <h3 key={i}>{data.ticketname} </h3>
+          <p>{data.age} {data.price}</p>
+        </div>
+      )})) 
+      }</div>
+      } 
+     
+      <div className="PlaceExplaination">
+        <h3>핵심 포인트!</h3>
+        <p>{detail.explain}</p>
+        </div>
+        <div className="place_gps">
+          <h3>찾아오는 길</h3>
+          <Map detail={detail} markers={markers}/>
+        </div>
+     
     </div>
   )
 }

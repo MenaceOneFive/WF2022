@@ -1,14 +1,123 @@
-/*Place.js , Slider.js*/
+/* Slider.js*/
+.slide-container{
+    padding: 30px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}
+/*Place.js*/
+.PlaceDetail{
+    background-color: rgb(245, 247, 250);
+}
 .place_img{
     display: block;
-    width: 60%;
+    width: 100%;
     margin: 10px auto;
 }
-.PlaceExplaination{
-    padding: 20px;
-    margin: 30px auto;
+/*가격에 대한 css*/
+.ticket_wrapper{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+  }
+  .ticket_wrapper h3{
+    font-size:18px;
+    font-weight:bold;
+  }
+  .PlaceTicket{
+    padding:20px;
+    margin:10px auto;
+    background-color:rgb(255, 255, 255);
+  }
+  .PlaceTicket h3 p{
+    padding:20px;
+    border-bottom:1px solid #333;
+    display:flex;
+  }
+  .PlaceTicket p{
+    padding:20px;
+    border-bottom:1px solid #333;
+    display:flex;
+  }
+  .PlaceTicket:last-child{
+    border-bottom: none;
+  }
+ /*이름에 대한 css*/
+ .placeName{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+ }
+ .placeName h2{
+    font-size:18px;
+    font-weight:bold;
+  }
+  /*설명*/
+  .PlaceExplaination{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
 }
+.PlaceExplaination h3{
+    font-size:18px;
+    font-weight:bold;
+}
+  /*지도*/
+  .place_gps{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+  }
+  .place_gps h3{
+    font-size:18px;
+    font-weight:bold;
+    margin-left: 30px;
+  }
+
 /*City.js*/
+.cityDetail{
+    background-color: rgb(245, 247, 250);
+}
+/*소개*/
+.cityGuid{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}
+/*전체 묶음*/
+.totalList{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}
+/*추천장소*/
 .placeList{
     display: flex;
     flex-wrap: wrap;
@@ -16,19 +125,27 @@
 }
 .popularPlaceList{
     display: flex;
+    margin: 20px auto
 }
 .restaurantList{
     display: flex;
 }
 .placeDetail-container {
-    width: 250px;
+    width: 100%;
+    height: 85%;
     margin: 16px;
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px gray;
-    border : 1px solid gray;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px rgba(227, 227, 227, 0.5);
+    overflow:hidden;
+    border : 2px solid  #9ba1a5;
 }
 .placeDetail-container img {
-    max-width: 100%;
+   max-width: 100%;
+
+    transition: all 0.2s linear;
+}
+.placeDetail-container:hover img {
+    transform: scale(1.05);
 }
 .popular-info{
     padding : 20px;
@@ -37,3 +154,15 @@
     color : #153462;
     text-decoration:none !important
 }
+/*Map.js*/
+.detailMap{
+    margin: 10px auto;
+    padding:5px;
+}
+/*
+ width: 250px;
+    margin: 16px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(227, 227, 227, 0.5);
+    border : 1px solid gray;
+*/
