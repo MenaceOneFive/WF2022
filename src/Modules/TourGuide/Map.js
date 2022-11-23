@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
-
+import Box from '@mui/material/Box';
 
 const getInfoWindowString = (place) => `
 <div>
@@ -43,7 +43,7 @@ export const Map = ({detail, markers}) => {
 
   
   return (
-  <div className="detailMap" style={{ height: 480, width: 800 }}>
+  <Box className="detailMap" style={{ height: 480, width: 800 }}>
     <GoogleMapReact
       bootstrapURLKeys = {{ key: myAPIKEY }}
       defaultCenter={{lat: detail.gps[0], lng: detail.gps[1]}}
@@ -51,6 +51,6 @@ export const Map = ({detail, markers}) => {
       yesIWantToUseGoogleMapApiInternals
       onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps, markers)}>
     </GoogleMapReact>
-  </div>
+  </Box>
   )
 }

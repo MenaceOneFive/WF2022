@@ -7,6 +7,7 @@ import osaka from './osaka.jpg';
 import fukuoka from './fukuoka.jpg';
 import cityData from '../../Data/cityData';
 
+
 const cityImages = [seoul, jeju, osaka, fukuoka];
 
 export const TourGuide = () => {
