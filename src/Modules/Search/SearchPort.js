@@ -9,7 +9,6 @@ export default function SearchPort({setPort = f => f, searchBoxName}) {
       disablePortal
       id="search-cityport"
       options={airportData}
-      sx={{ width: 300}}
       renderInput={ (params) => <TextField {...params} label={`${searchBoxName}`} />}
       onChange={(event, value) => {setPort(value.value)}}
     />
