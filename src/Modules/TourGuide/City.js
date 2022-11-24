@@ -1,8 +1,9 @@
 import {useParams} from "react-router-dom";
 import tourData from '../../Data/tourData';
 import cityData from '../../Data/cityData';
-import "./css/place.css"
-
+import "./css/city.css"
+import Box from '@mui/material/Box';
+import SimpleAccordion from "./CityExplaination";
 export const City = () => {
 
     const params = useParams();
@@ -19,50 +20,53 @@ export const CityDetail = ({citycode}) => {
     console.log(detailList);
 
     return (
-        <div className="cityDetail">
-            <div className="cityGuid">
+        <Box className="cityDetail">
+            <Box className="cityGuid">
             <h2>{detail.city}</h2>
-            <h4>{detail.city} 여행 가이드</h4>
-            <span>{detail.explaination}</span>
-            </div>
-            <div className="totalList">
+           <SimpleAccordion detail={detail} />
+            </Box>
+            <Box className="totalList">
             <h4>{detail.city} 여행 즐기기</h4>
-            <div className="placeList">
-                <div className="popularPlaceList">
+            <Box className="placeList">
+                <Box className="popularPlaceList">
                     {detailList.map((item, i) => {return (
                         !(item.type === "즐길거리") ? "" :
-                        <div className="placeDetail-container" key={i}>
+                        <Box className="placeDetail-container" key={i}>
                             <a href={`/CityDetail/Place/${item.namecode}`} className="placeLink">
-                                <img src={item.image[0]} width={250} height={150}/>
-                               <div className="popular-info">
-                                <h4>{item.name}</h4>
-                                <span>"{item.semitype}"</span>
-                                </div>
+                                <img src={item.image[0]}  width={250} height={150}/>
+                               <Box className="popular-info">
+                                <h5>{item.name}</h5>
+                                <Box componet="span" className="semitype">"{item.semitype}"</Box>
+                                </Box>
                             </a>
-                        </div>
+                        </Box>
                     )})}
-                </div>
-                <div className="restaurantList">
+                </Box>
+                <Box className="restaurantList">
                     {detailList.map((item, i) => {return (
                         !(item.type === "추천 레스토랑") ? "" :
-                        <div className="placeDetail-container" key={i}>
+                        <Box className="placeDetail-container" key={i}>
                             <a href={`/CityDetail/Place/${item.namecode}`} className="placeLink">
                             <img src={item.image[0]} width={250} height={150}/>
-                            <div className="popular-info">
-                            <h4>{item.name}</h4>
-                            <span>"{item.semitype}"</span>
-                            </div>
+                            <Box className="popular-info">
+                            <h5>{item.name}</h5>
+                            <Box componet="span" className="semitype">"{item.semitype}"</Box>
+                            </Box>
                             </a>
-                        </div>
+                        </Box>
                     )})}
-                </div>
-                </div>
-            </div>
-        </div>
+                </Box>
+                </Box>
+            </Box>
+        </Box>
     )
 }
 /*
     <div className="popularPlaceDetail" key={i}>
     <div className="restaurantDetail" key={i}>
 
+     <h4>{detail.city} 여행 가이드</h4>
+            <Box componet="span">{detail.explaination}</Box>
+
+    restaurantList
 */

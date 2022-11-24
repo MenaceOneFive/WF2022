@@ -6,6 +6,8 @@ import "./css/place.css"
 import "./css/reset.css"
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'
+import Box from '@mui/material/Box';
+import SimpleAccordion from "./PlaceExplaination";
 
 export const Place = () => {
 
@@ -21,32 +23,34 @@ export const PlaceDetail = ({placename}) => {
   const markers = tourData.filter(data => data.cityeng === detail.cityeng);
 
   return (
-    <div className="PlaceDetail">
-      <div className="placeName">
+    <Box className="PlaceDetail">
+      <Box className="placeName">
       <h2>{detail.name}</h2>
       <p>"{detail.semitype}"</p>
-      </div>
+      </Box>
       <Carousel images={detail.image} />
-      {(detail.ticket === "무료") ? "" : <div className="ticket_wrapper"> {
+      {(detail.ticket === "무료") ? "" : <Box className="ticket_wrapper"> {
       (detail.ticket.map((data, i) => { return (
-        <div className="PlaceTicket" >
+        <Box className="PlaceTicket" >
           <h3 key={i}>{data.ticketname} </h3>
           <p>{data.age} {data.price}</p>
-        </div>
+        </Box>
       )})) 
-      }</div>
+      }</Box>
       } 
      
-      <div className="PlaceExplaination">
-        <h3>핵심 포인트!</h3>
-        <p>{detail.explain}</p>
-        </div>
-        <div className="place_gps">
+      <Box className="PlaceExplaination">
+          <SimpleAccordion detail={detail} className="accordian"/>
+        </Box>
+        <Box className="place_gps">
           <h3>찾아오는 길</h3>
-          <Map detail={detail} markers={markers}/>
-        </div>
+          <Map className="map" detail={detail} markers={markers}/>
+        </Box>
      
-    </div>
+    </Box>
   )
 }
-// 
+/*
+  <h3>핵심 포인트!</h3>
+        <p>{detail.explain}</p>
+*/ 

@@ -1,6 +1,8 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import "./css/map.css"
 import "./css/place.css"
+import Box from '@mui/material/Box';
 
 
 const getInfoWindowString = (place) => `
@@ -44,8 +46,8 @@ export const Map = ({detail, markers}) => {
 
   
   return (
-  <div className="detailMap" style={{ height: 480, width: 800 }}>
-    <GoogleMapReact
+  <div className="detailMap" style={{height: 480}}>
+    <GoogleMapReact className="map"
       bootstrapURLKeys = {{ key: myAPIKEY }}
       defaultCenter={{lat: detail.gps[0], lng: detail.gps[1]}}
       defaultZoom={15}

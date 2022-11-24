@@ -1,0 +1,92 @@
+/*City.js*/
+@import "./default.css";
+
+body{
+    font-family: 'regular';
+}
+
+.cityDetail{
+    background-color: rgb(245, 247, 250);
+}
+/*소개*/
+.cityGuid{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+    font-family: 'bold';
+}
+.cityGuid h2{
+    margin-left: 18px;
+}
+/*전체 묶음*/
+.totalList{
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}
+.totalList h4{
+    font-family: 'bold';
+    margin-left: 18px;
+}
+.totalList h5{
+    font-weight: 540;
+}
+.semitype{
+    font : 'light';
+    font-size: 10px;
+    opacity: 0.5;
+}
+/*추천장소*/
+.placeList{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.popularPlaceList{
+    display: flex;
+    margin: 20px auto;
+}
+.restaurantList{
+    display: flex;
+    margin: 20px auto
+}
+.placeDetail-container {
+    width: 100%;
+    height: 85%;
+    margin: 16px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 5px rgba(227, 227, 227, 0.5);
+    overflow:hidden;
+    flex-grow:1;
+}
+.placeDetail-container img {
+    width: 100%;
+    transition: all 0.2s linear;
+}
+.placeDetail-container:hover img {
+    transform: scale(1.05);
+}
+.popular-info{
+    padding : 20px;
+}
+.placeLink{
+    color : #153462;
+    text-decoration:none !important
+}
+/*CityExplaination.js*/
+.city_detail_info_name{
+    font-family: 'bold' !important;
+    opacity: 0.8;
+}
+.city_detail_info{
+    font-family: 'light' !important;
+}
+.accordion{
+    margin: 18px !important;
+}

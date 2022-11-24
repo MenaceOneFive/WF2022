@@ -1,14 +1,10 @@
-/* Slider.js*/
-.slide-container{
-    padding: 30px;
-    width: 60%;
-    margin: 20px auto;
-    background: rgb(255, 255, 255);
-    padding: 24px 16px 16px;
-    border-radius: 8px;
-    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
-}
 /*Place.js*/
+@import "./default.css";
+
+body{
+  font-family: 'regular';
+}
+
 .PlaceDetail{
     background-color: rgb(245, 247, 250);
 }
@@ -42,7 +38,7 @@
     display:flex;
   }
   .PlaceTicket p{
-    padding:20px;
+    padding:0px;
     border-bottom:1px solid #333;
     display:flex;
   }
@@ -60,8 +56,11 @@
     box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
  }
  .placeName h2{
-    font-size:18px;
-    font-weight:bold;
+    font-weight:"bold";
+  }
+  .placeName p{
+    opacity: 0.8;
+    font-size : 15px;
   }
   /*설명*/
   .PlaceExplaination{
@@ -77,6 +76,10 @@
     font-size:18px;
     font-weight:bold;
 }
+.PlaceExplaination SimpleAccordion{
+  padding: 18px;
+}
+
   /*지도*/
   .place_gps{
     padding:20px;
@@ -88,76 +91,27 @@
     box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
   }
   .place_gps h3{
-    font-size:18px;
-    font-weight:bold;
-    margin-left: 30px;
+    
+    font-family: "bold";
+    font-size: 20px;
+    margin-left: 18px;
   }
-
-/*City.js*/
-.cityDetail{
-    background-color: rgb(245, 247, 250);
+/*PlaceExplaination.js*/
+.keypoint{
+  font-family: 'bold' !important;
 }
-/*소개*/
-.cityGuid{
-    padding:20px;
-    width: 60%;
-    margin: 20px auto;
-    background: rgb(255, 255, 255);
-    padding: 24px 16px 16px;
-    border-radius: 8px;
-    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
-}
-/*전체 묶음*/
-.totalList{
-    padding:20px;
-    width: 60%;
-    margin: 20px auto;
-    background: rgb(255, 255, 255);
-    padding: 24px 16px 16px;
-    border-radius: 8px;
-    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
-}
-/*추천장소*/
-.placeList{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.popularPlaceList{
-    display: flex;
-    margin: 20px auto
-}
-.restaurantList{
-    display: flex;
-}
-.placeDetail-container {
-    width: 100%;
-    height: 85%;
-    margin: 16px;
-    border-radius: 20px;
-    box-shadow: 3px 3px 5px rgba(227, 227, 227, 0.5);
-    overflow:hidden;
-    border : 2px solid  #9ba1a5;
-}
-.placeDetail-container img {
-   max-width: 100%;
-
-    transition: all 0.2s linear;
-}
-.placeDetail-container:hover img {
-    transform: scale(1.05);
-}
-.popular-info{
-    padding : 20px;
-}
-.placeLink{
-    color : #153462;
-    text-decoration:none !important
+.keypoint_explain{
+  font-family: 'light' !important;
 }
 /*Map.js*/
 .detailMap{
-    margin: 10px auto;
-    padding:5px;
+  margin: 10px auto;
+  padding:5px;
+  width: 100%;
+  
+}
+.map{
+  overflow: hidden !important;
 }
 /*
  width: 250px;

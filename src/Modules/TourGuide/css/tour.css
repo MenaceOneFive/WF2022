@@ -1,0 +1,11 @@
+@import "./default.css";
+
+body{
+    font-family: 'regular';
+}
+
+.tour_slider{
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+}
