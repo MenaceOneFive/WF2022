@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import tourData from '../../Data/tourData';
 import cityData from '../../Data/cityData';
 import Box from '@mui/material/Box';
@@ -29,10 +29,10 @@ export const CityDetail = ({citycode}) => {
                     {detailList.map((item, i) => {return (
                         !(item.type === "즐길거리") ? "" :
                         <Box className="popularPlaceDetail" key={i}>
-                            <a href={`/CityDetail/Place/${item.namecode}`}>
+                            <Link to={`/CityDetail/Place/${item.namecode}`}>
                                 <Box component="span">{item.name}</Box><br/>
                                 <Box component="span">"{item.semitype}"</Box>
-                            </a>
+                            </Link>
                         </Box>
                     )})}
                 </Box>
@@ -40,10 +40,10 @@ export const CityDetail = ({citycode}) => {
                     {detailList.map((item, i) => {return (
                         !(item.type === "추천 레스토랑") ? "" :
                         <Box className="restaurantDetail" key={i}>
-                            <a href={`/CityDetail/Place/${item.namecode}`}>
+                            <Link to={`/CityDetail/Place/${item.namecode}`}>
                                 <Box component="span">{item.name}</Box><br/>
                                 <Box component="span">"{item.semitype}"</Box>
-                            </a>
+                            </Link>
                         </Box>
                     )})}
                 </Box>

@@ -1,5 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
 import {useState} from "react";
+import {Link} from 'react-router-dom';
 import bootstrap from "./bootstrap.css"
 import seoul from './seoul.jpg';
 import jeju from './jeju.jpg';
@@ -23,15 +24,32 @@ export const TourGuide = () => {
       <Carousel fade activeIndex={index} onSelect={handleSelect} style={{...bootstrap, width: 800, height: 400}}>
         {cityImages.map( (item, i) => { return (
           <Carousel.Item key={i}>
-            <a href={`/CityDetail/${cityeng[i]}`}>
+            <Link to={`/CityDetail/${cityeng[i]}`}>
               <img src={item} className={"city-img"} width={800} height={400}/>
               <Carousel.Caption>
                 <h3>{city[i]}</h3>
               </Carousel.Caption>
-            </a>
+            </Link>
           </Carousel.Item>
         )})}
       </Carousel>
     </>
   )
 }
+//   return (
+//     <>
+//       <Carousel fade activeIndex={index} onSelect={handleSelect} style={{...bootstrap, width: 800, height: 400}}>
+//         {cityImages.map( (item, i) => { return (
+//           <Carousel.Item key={i}>
+//             <a href={`/CityDetail/${cityeng[i]}`}>
+//               <img src={item} className={"city-img"} width={800} height={400}/>
+//               <Carousel.Caption>
+//                 <h3>{city[i]}</h3>
+//               </Carousel.Caption>
+//             </a>
+//           </Carousel.Item>
+//         )})}
+//       </Carousel>
+//     </>
+//   )
+// }
