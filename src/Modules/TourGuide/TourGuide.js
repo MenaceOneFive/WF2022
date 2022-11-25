@@ -7,6 +7,7 @@ import jeju from './jeju.jpg';
 import osaka from './osaka.jpg';
 import fukuoka from './fukuoka.jpg';
 import cityData from '../../Data/cityData';
+import "./css/tour.css";
 
 
 const cityImages = [seoul, jeju, osaka, fukuoka];
@@ -21,7 +22,7 @@ export const TourGuide = () => {
 
   return (
     <>
-      <Carousel fade activeIndex={index} onSelect={handleSelect} style={{...bootstrap, width: 800, height: 400}}>
+      <Carousel className="tour_slider" fade activeIndex={index} onSelect={handleSelect} style={{...bootstrap, width: 800, height: 400}}>
         {cityImages.map( (item, i) => { return (
           <Carousel.Item key={i}>
             <Link to={`/CityDetail/${cityeng[i]}`}>

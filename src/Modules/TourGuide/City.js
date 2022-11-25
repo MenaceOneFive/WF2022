@@ -2,7 +2,9 @@ import {useParams, Link} from "react-router-dom";
 import tourData from '../../Data/tourData';
 import cityData from '../../Data/cityData';
 import Box from '@mui/material/Box';
-
+import "./css/city.css"
+import Box from '@mui/material/Box';
+import SimpleAccordion from "./CityExplaination";
 export const City = () => {
 
     const params = useParams();
@@ -20,18 +22,23 @@ export const CityDetail = ({citycode}) => {
 
     return (
         <Box className="cityDetail">
+            <Box className="cityGuid">
             <h2>{detail.city}</h2>
-            <h4>{detail.city} 여행 가이드</h4>
-            <Box component="span">{detail.explaination}</Box>
+           <SimpleAccordion detail={detail} />
+            </Box>
+            <Box className="totalList">
             <h4>{detail.city} 여행 즐기기</h4>
             <Box className="placeList">
                 <Box className="popularPlaceList">
                     {detailList.map((item, i) => {return (
                         !(item.type === "즐길거리") ? "" :
-                        <Box className="popularPlaceDetail" key={i}>
-                            <Link to={`/CityDetail/Place/${item.namecode}`}>
-                                <Box component="span">{item.name}</Box><br/>
-                                <Box component="span">"{item.semitype}"</Box>
+                        <Box className="placeDetail-container" key={i}>
+                            <Link to={`/CityDetail/Place/${item.namecode}`} className="placeLink">
+                                <img src={item.image[0]}  width={250} height={150}/>
+                               <Box className="popular-info">
+                                <h5>{item.name}</h5>
+                                <Box componet="span" className="semitype">"{item.semitype}"</Box>
+                                </Box>
                             </Link>
                         </Box>
                     )})}
@@ -39,15 +46,18 @@ export const CityDetail = ({citycode}) => {
                 <Box className="restaurantList">
                     {detailList.map((item, i) => {return (
                         !(item.type === "추천 레스토랑") ? "" :
-                        <Box className="restaurantDetail" key={i}>
-                            <Link to={`/CityDetail/Place/${item.namecode}`}>
-                                <Box component="span">{item.name}</Box><br/>
-                                <Box component="span">"{item.semitype}"</Box>
+                        <Box className="placeDetail-container" key={i}>
+                            <Link to={`/CityDetail/Place/${item.namecode}`} className="placeLink">
+                            <img src={item.image[0]} width={250} height={150}/>
+                            <Box className="popular-info">
+                            <h5>{item.name}</h5>
+                            <Box componet="span" className="semitype">"{item.semitype}"</Box>
+                            </Box>
                             </Link>
                         </Box>
                     )})}
                 </Box>
+                </Box>
             </Box>
         </Box>
-    )
-}
+    ) }

@@ -1,0 +1,9 @@
+/*Map.js*/
+@import "./default.css";
+
+body{
+    font-family: 'regular';
+}
+.accordian_{
+    margin: 12px;
+}

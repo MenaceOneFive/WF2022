@@ -1,0 +1,122 @@
+/*Place.js*/
+@import "./default.css";
+
+body{
+  font-family: 'regular';
+}
+
+.PlaceDetail{
+    background-color: rgb(245, 247, 250);
+}
+.place_img{
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+}
+/*가격에 대한 css*/
+.ticket_wrapper{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+  }
+  .ticket_wrapper h3{
+    font-size:18px;
+    font-weight:bold;
+  }
+  .PlaceTicket{
+    padding:20px;
+    margin:10px auto;
+    background-color:rgb(255, 255, 255);
+  }
+  .PlaceTicket h3 p{
+    padding:20px;
+    border-bottom:1px solid #333;
+    display:flex;
+  }
+  .PlaceTicket p{
+    padding:0px;
+    border-bottom:1px solid #333;
+    display:flex;
+  }
+  .PlaceTicket:last-child{
+    border-bottom: none;
+  }
+ /*이름에 대한 css*/
+ .placeName{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+ }
+ .placeName h2{
+    font-weight:"bold";
+  }
+  .placeName p{
+    opacity: 0.8;
+    font-size : 15px;
+  }
+  /*설명*/
+  .PlaceExplaination{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}
+.PlaceExplaination h3{
+    font-size:18px;
+    font-weight:bold;
+}
+.PlaceExplaination SimpleAccordion{
+  padding: 18px;
+}
+
+  /*지도*/
+  .place_gps{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+  }
+  .place_gps h3{
+    
+    font-family: "bold";
+    font-size: 20px;
+    margin-left: 18px;
+  }
+/*PlaceExplaination.js*/
+.keypoint{
+  font-family: 'bold' !important;
+}
+.keypoint_explain{
+  font-family: 'light' !important;
+}
+/*Map.js*/
+.detailMap{
+  margin: 10px auto;
+  padding:5px;
+  width: 100%;
+  
+}
+.map{
+  overflow: hidden !important;
+}
+/*
+ width: 250px;
+    margin: 16px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(227, 227, 227, 0.5);
+    border : 1px solid gray;
+*/

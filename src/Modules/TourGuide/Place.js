@@ -1,7 +1,10 @@
 import { useParams } from "react-router-dom";
 import { Map } from './Map';
 import tourData from '../../Data/tourData';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css'
 import Box from '@mui/material/Box';
+import SimpleAccordion from "./PlaceExplaination";
 
 export const Place = () => {
 
@@ -18,18 +21,29 @@ export const PlaceDetail = ({placename}) => {
 
   return (
     <Box className="PlaceDetail">
+      <Box className="placeName">
       <h2>{detail.name}</h2>
-      <Box component="span">"{detail.semitype}"</Box>
-      {(detail.ticket === "무료") ? "" :
+      <p>"{detail.semitype}"</p>
+      </Box>
+      <Carousel images={detail.image} />
+      {(detail.ticket === "무료") ? "" : <Box className="ticket_wrapper"> {
       (detail.ticket.map((data, i) => { return (
-        <Box className="PlaceTicket" key={i}>
-          <h4>{data.ticketname}</h4>
-          <Box component="span">{data.age}</Box>
-          <Box component="span">{data.price}</Box>
+        <Box className="PlaceTicket" >
+          <h3 key={i}>{data.ticketname} </h3>
+          <p>{data.age} {data.price}</p>
         </Box>
-      )}))}
-      <Box className="PlaceExplaination">{detail.explain}</Box>
-      <Map detail={detail} markers={markers} />
+      )}))
+      }</Box>
+      }
+
+      <Box className="PlaceExplaination">
+          <SimpleAccordion detail={detail} className="accordian"/>
+        </Box>
+        <Box className="place_gps">
+          <h3>찾아오는 길</h3>
+          <Map className="map" detail={detail} markers={markers}/>
+        </Box>
+
     </Box>
   )
 }
