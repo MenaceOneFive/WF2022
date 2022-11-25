@@ -45,7 +45,7 @@ export const Home = () => {
             <div className="row">
                 <div className="col-4">
                     <div className="go-destination">
-                        <Link to="/TourGuide" className="text-link go-destination-page">여행지 더보기
+                        <Link to="/TourGuide" onClick={() => {window.scrollTo({top:0})}} className="text-link go-destination-page">여행지 더보기
                         </Link>
                         
                     </div>
@@ -78,7 +78,7 @@ export const Home = () => {
             <div className="row">
                 <div className="col-4">
                     <div className="go-destination">
-                        <Link to="/RoomPage" className="text-link go-destination-page">호텔 더보기
+                        <Link to="/RoomPage" onClick={() => {window.scrollTo({top:0})}} className="text-link go-destination-page">호텔 더보기
                         </Link>
                         
                     </div>
