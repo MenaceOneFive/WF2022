@@ -1,7 +1,6 @@
 import {useParams, Link} from "react-router-dom";
 import tourData from '../../Data/tourData';
 import cityData from '../../Data/cityData';
-import Box from '@mui/material/Box';
 import "./css/city.css"
 import Box from '@mui/material/Box';
 import SimpleAccordion from "./CityExplaination";

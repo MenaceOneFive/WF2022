@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'
 import Box from '@mui/material/Box';
 import SimpleAccordion from "./PlaceExplaination";
+import {Carousel} from "react-bootstrap";
 
 export const Place = () => {
 

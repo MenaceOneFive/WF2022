@@ -3,7 +3,6 @@ import GoogleMapReact from 'google-map-react';
 import Box from '@mui/material/Box';
 import "./css/map.css"
 import "./css/place.css"
-import Box from '@mui/material/Box';
 
 
 const getInfoWindowString = (place) => `
