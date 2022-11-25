@@ -10,6 +10,8 @@ import "./style.css";
 import headerImg from "./assets/header.png";
 import {TourGuide} from "../TourGuide/TourGuide";
 import { signOut } from "../FirebaseWrapper/FBAuth";
+import { CustomRoomHolder } from "./MainPage/Grid/Components/RoomHolder";
+import tourData from "../../Data/tourData"
 
 export const Home = () => {
     return (
@@ -32,13 +34,19 @@ export const Home = () => {
            
             <div className="row">
                 <div className="col-4">
-                    <a href="#" className="destination-img1"></a>
+                    <a href="CityDetail/Place/jeju-hanrasanpark">
+                        <img src={tourData.filter(data => data.name==="경복궁")[0].image[0]} className="destination-img"></img>
+                    </a>
                 </div>
                 <div className="col-4">
-                    <a href="#" className="destination-img2"></a>
+                <a href="CityDetail/Place/jeju-udo">
+                        <img src={tourData.filter(data => data.name==="우도")[0].image[0]} className="destination-img"></img>
+                    </a>
                 </div>
                 <div className="col-4">
-                    <a href="#" className="destination-img3"></a>
+                <a href="CityDetail/Place/seoul-chunggecheun">
+                        <img src={tourData.filter(data => data.name==="청계천")[0].image[0]} className="destination-img"></img>
+                    </a>
                 </div>
             </div>
 
@@ -69,10 +77,15 @@ export const Home = () => {
             </div>
            
             <div className="row">
-                <div className="col-12">
-                    <a href="#" className="hotel-img"></a>
+                <div className="col-4">
+                    <a href="#" className="hotel-img"><CustomRoomHolder idx={9}></CustomRoomHolder></a>
                 </div>
-                
+                <div className="col-4">
+                    <a href="#" className="hotel-img"><CustomRoomHolder idx={45}></CustomRoomHolder></a>
+                </div>
+                <div className="col-4">
+                    <a href="#" className="hotel-img"><CustomRoomHolder idx={52}></CustomRoomHolder></a>
+                </div>
             </div>
 
             <div className="row">

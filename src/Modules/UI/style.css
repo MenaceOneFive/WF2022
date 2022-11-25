@@ -192,9 +192,8 @@
   text-align: center;
 }
 
-.destination-img1,
-.destination-img2,
-.destination-img3{
+.destination-img,
+.hotel-img{
   display: block;
   width: 300px;
   height: 300px;
@@ -261,15 +260,6 @@
   font-size: 16px;
   color: #767676;
   text-align: center;
-}
-
-.hotel-img{
-  display: block;
-  width: 960px;
-  height: 350px;
-  margin-bottom: 40px;
-  background-color: #f5f5f5;
-  border-radius: 30px;
 }
 
 .go-destination::after{

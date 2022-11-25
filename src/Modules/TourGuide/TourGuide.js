@@ -22,11 +22,11 @@ export const TourGuide = () => {
 
   return (
     <>
-      <Carousel className="tour_slider" fade activeIndex={index} onSelect={handleSelect} style={{...bootstrap, width: 800, height: 400}}>
+      <Carousel className="tour_slider" fade activeIndex={index} onSelect={handleSelect} style={{...bootstrap, width: 1000, height: 400}}>
         {cityImages.map( (item, i) => { return (
           <Carousel.Item key={i}>
             <Link to={`/CityDetail/${cityeng[i]}`}>
-              <img src={item} className={"city-img"} width={800} height={400}/>
+              <img src={item} className={"city-img"} width={1000} height={400}/>
               <Carousel.Caption>
                 <h3>{city[i]}</h3>
               </Carousel.Caption>
