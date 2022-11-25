@@ -6,13 +6,18 @@ import 'slick-carousel/slick/slick-theme.css'
 import Box from '@mui/material/Box';
 import SimpleAccordion from "./PlaceExplaination";
 import {Carousel} from "react-bootstrap";
+import { PageTemplate } from "Modules/UI/Pages";
 
 export const Place = () => {
 
     const params = useParams();
     const placename = params.namecode;
     
-    return (<PlaceDetail placename={placename}/>)
+    return (
+    <PageTemplate>
+      <PlaceDetail placename={placename}/>
+    </PageTemplate>
+    )
 }
 
 export const PlaceDetail = ({placename}) => {
