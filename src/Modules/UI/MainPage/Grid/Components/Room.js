@@ -38,3 +38,22 @@ export const Room = ({data, style, imageSrc, setMouseEnter}) => {
         <></>
     )
 }
+
+export const CustomRoom = ({loading, room, style, imageSrc, setMouseEnter}) => {
+    if (!loading)
+        return (
+            <div style={{...style}}>
+                <img src={imageSrc} width={300} height={300} className="hotel-img"
+                     onMouseEnter={() => {
+                         setMouseEnter(true)
+                     }}
+                     onMouseLeave={() => {
+                         setMouseEnter(false)
+                     }} alt={room.id}/>
+                <hr/>
+            </div>)
+    else return (
+        //TODO: 꾸미기
+        <>{"Loading!"}</>
+    )
+}

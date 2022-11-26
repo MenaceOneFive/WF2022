@@ -1,6 +1,6 @@
 import {useRoom} from "../../hooks";
 import {useEffect, useRef, useState} from "react";
-import {Room} from "./Room";
+import {CustomRoom, Room} from "./Room";
 
 export const RoomHolder = ({idx, style}) => {
     const [data, loading] = useRoom(idx)
