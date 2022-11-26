@@ -11,12 +11,12 @@ export const DrawOrderItem = ({order}) => {
     const navigator = useNavigate()
     return (
         <TableRow sx={{'&:last-child td, &:last-child th': {border: 0}}}>
-            <TableCell component="th" scope="row" align={"left"}>{"aldkfjalskdjflkjasdflakjsdlfjlaks"}</TableCell>
-            <TableCell className="room-info"  align={"left"} onClick={() => {
+            <TableCell component="th" id="orderId" scope="row" align={"left"}>{order.orderId}</TableCell>
+            <TableCell id="roomName"  onClick={() => {
                 navigator(`/Product/${order.key.substring(5).replace(']', '')}`)
             }}><span style={{cursor:"pointer"}}>{order.name}</span></TableCell>
-            <TableCell align={"left"}>{order.startDate}</TableCell>
-            <TableCell align={"left"}>{order.endDate}</TableCell>
+            <TableCell id="startDate" align={"left"}>{order.startDate}</TableCell>
+            <TableCell id="endDate" align={"left"}>{order.endDate}</TableCell>
         </TableRow>
     )
 }

@@ -2,6 +2,8 @@ import {useFBAuth} from "../../FirebaseWrapper/FBAuth";
 import './css/MyPage.css'
 import {useOrderHistory} from "./Components/UseOrderHistory";
 import {OrderContainer} from "./Components/OrderContainer";
+import Typography from "@mui/material/Typography";
+import {Divider} from "@mui/material";
 
 export const MyPageRoot = () => {
     const [auth, isSignIn] = useFBAuth()
@@ -16,9 +18,12 @@ export const MyPageRoot = () => {
     return (
         <div className="container">
             <article>
-                    <OrderContainer orders={orders} loading={loading}/>
+                <Typography gutterBottom variant="h5" component="div">예약내역</Typography>
+                <Divider variant="middle" />
+                <br/>
+                <OrderContainer orders={orders} loading={loading}/>
             </article>
-            <aside> </aside>
+            <aside></aside>
         </div>
 
     )

@@ -11,10 +11,10 @@ export const OrderContainer = ({orders, loading}) => {
                 <Table sx={{minWidth: 650}} aria-label="Order-table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="left">예약번호</TableCell>
-                            <TableCell align="left">숙소 이름</TableCell>
-                            <TableCell align="left">입실일</TableCell>
-                            <TableCell align="left">퇴실일</TableCell>
+                            <TableCell id="orderId" align="left">예약번호</TableCell>
+                            <TableCell id="roomName" >숙소 이름</TableCell>
+                            <TableCell id="startDate" align="left">입실일</TableCell>
+                            <TableCell id="endDate" align="left">퇴실일</TableCell>
                         </TableRow>
                     </TableHead>
                 </Table>

@@ -3,14 +3,28 @@
 }
 
 article, aside {
-    height: calc(70vh) /*Header와 Footer의 크기가 변경된다면 수정해야함*/
+    height: calc(60vh) /*Header와 Footer의 크기가 변경된다면 수정해야함*/
 }
 
 article {
+    margin-top: 10%;
     flex: 4;
 }
 
 aside {
     flex: 2;
     height: 33%;
+}
+
+#orderId {
+    width: 20%;
+}
+
+#roomName {
+    width: 50%;
+    align-items: center;
+}
+
+#startDate, #endDate {
+    width: 15%;
 }

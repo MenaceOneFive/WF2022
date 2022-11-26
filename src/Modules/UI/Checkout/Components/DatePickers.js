@@ -12,36 +12,56 @@ export const DatePickers = ({start, end}) => {
     const endDate = end.endDate
     const [diff, setDiff] = useState(endDate.diff(startDate, 'day'))
     const [alertMsg, setAlertMsg] = useState("")
+    const today = dayjs()
+    today.second(0).valueOf()
+    today.hour(0).valueOf()
+    today.second(0).valueOf()
 
     const onChangeStartDate = (nv) => {
         const tmp = dayjs(nv.toString())
-        if (tmp.isBefore(endDate)) {
+        tmp.hour(0).valueOf()
+        tmp.minute(0).valueOf()
+        tmp.second(0).valueOf()
+        if(today.subtract(1, 'day').isAfter(tmp)){
+            setAlertMsg("예약일자를 다시 확인하세요")
+            return
+        }
+        if (tmp.isBefore(endDate.hour(1).valueOf())) {
             const diff = getDiff(endDate, tmp)
             if (diff < 30) {
                 start.setStartDate(tmp)
                 setDiff(diff)
                 setAlertMsg("")
             } else {
-                setAlertMsg("장기 투숙은 문의 바랍니다.")
+                setAlertMsg("장기 예약은 문의 바랍니다.")
             }
         } else {
-            setAlertMsg("다시 선택")
+            setAlertMsg("다시 선택하세요")
         }
     }
 
     const onChangeEndDate = (nv) => {
         const tmp = dayjs(nv.toString())
+        tmp.hour(0).valueOf()
+        tmp.minute(0).valueOf()
+        tmp.second(30).valueOf()
+        // if(getDiff(dayjs(), endDate)>0) {
+        if(today.isAfter(tmp)) {
+            setAlertMsg("예약일자를 다시 확인하세요")
+            return
+        }
         if (tmp.isAfter(startDate)) {
-            const diff = getDiff(tmp, startDate)
+            const diff = getDiff(tmp, start.startDate)
             if (diff < 30) {
+                tmp.second(0).valueOf()
                 end.setEndDate(tmp)
                 setDiff(diff)
                 setAlertMsg("")
             } else {
-                setAlertMsg("장기 투숙은 문의 바랍니다.")
+                setAlertMsg("장기 예약은 문의 바랍니다.")
             }
         } else {
-            setAlertMsg("다시 선택")
+            setAlertMsg("다시 선택하세요")
         }
     }
     return (

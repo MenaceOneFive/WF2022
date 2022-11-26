@@ -1,6 +1,7 @@
 import {FixedSizeGrid} from "react-window";
 import {useRoomCollectionLength} from "../../hooks";
 import {RoomHolder} from "./RoomHolder";
+import {Loading} from "../Common/Loading";
 
 /**
  * 메인페이지에 다양한 방을 무한(유한)스크롤 방식으로
@@ -30,7 +31,7 @@ export const MainPageGrid = () => {
     }
     if (loading) {
         //TODO: 꾸미기
-        return (<>{"Loading Please be patient......."}</>)
+        return (<Loading/>)
     } else {
         return (
             <GridLayout/>

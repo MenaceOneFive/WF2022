@@ -12,9 +12,8 @@ import {DatePickers} from "./Components/DatePickers";
 import {BriefRoomInfo} from "./Components/BriefRoomInfo";
 import {diffInString, getDiff} from "./Components/Diff";
 import {CustomerInfo} from "./Components/CustomerInfo";
-import {GuestCount} from "./Components/GuestCount";
+import {GuestCount, validateCount} from "./Components/GuestCount";
 import {Payment} from "./Components/Payment";
-import CircularProgress from "@mui/material/CircularProgress";
 import {Loading} from "../Common/Loading";
 
 export const CheckoutRoot = () => {
@@ -28,14 +27,41 @@ export const CheckoutRoot = () => {
     const [adultCount, setAdultCount] = useState(0)
     const [juvenileCount, setJuvenileCount] = useState(0)
     const [payment, setPayment] = useState("")
+    const [customer, setCustomer] = useState({name: "", email: "", phone: ""})
     const navigate = useNavigate()
 
     const onButtonClick = () => {
         if (isSignIn) {
-            alert(`${room.id}`)
+            if (getDiff(endDate, startDate) > 30) {
+                alert("장기 예약은 문의 바랍니다.")
+                return
+            }
+            if ((dayjs().subtract(1, "day").isAfter(startDate) === true)
+                || (dayjs().subtract(1, "day").isAfter(endDate) === true)) {
+                alert("예약일자를 다시 확인하세요")
+                return
+            }
+            if ((adultCount === 0 && juvenileCount === 0)) {
+                alert("투숙 인원을 설정하세요")
+                return;
+            }
+            if (payment === "") {
+                alert("결제 수단을 선택하세요")
+                return;
+            }
+            if (customer.name === "") {
+                alert("예약자 이름을 입력하세요")
+                return;
+            }
+            if (customer.email === "" || customer.phone==="") {
+                alert("예약자의 기본 정보를 입력하세요")
+                return;
+            }
             const order = new Order();
             const rand = Math.floor(Math.random() * (1000000 - 1000) + 1000)
             order.UID = auth.currentUser.uid
+            order.startDate = startDate.format("YYYY-MM-DD")
+            order.endDate = endDate.format("YYYY-MM-DD")
             order.roomId = room.id
             order.orderId = generateOrderId() + `-${rand.toString().padStart(7, '0')}`
             createOrder(order)
@@ -43,7 +69,7 @@ export const CheckoutRoot = () => {
         }
     }
 
-    if (loading){
+    if (loading) {
         return (<Loading/>)
     }
     return (
@@ -69,12 +95,11 @@ export const CheckoutRoot = () => {
                         <Divider sx={{marginBottom: 2}}/>
                         <GuestCount adult={{adultCount, setAdultCount}} juvenile={{juvenileCount, setJuvenileCount}}/>
                     </div>
-
                     <div className='order-section'>
                         <Typography sx={{fontSize: 20, marginLeft: 5}} color="text.secondary" gutterBottom>
                             예약자 정보 </Typography>
                         <Divider sx={{marginBottom: 2}}/>
-                        <CustomerInfo/>
+                        <CustomerInfo customer={customer} setCustomer={setCustomer}/>
                     </div>
                     <div className='order-section'>
                         <Typography sx={{fontSize: 20, marginLeft: 5}} color="text.secondary" gutterBottom>

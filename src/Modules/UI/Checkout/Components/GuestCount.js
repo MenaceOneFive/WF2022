@@ -68,7 +68,7 @@ export const GuestCount = ({adult, juvenile}) => {
     )
 }
 
-const validateCount = (adult, juvenile) => {
+export const validateCount = (adult, juvenile) => {
     if(adult === 0 && juvenile !== 0)
     {
         return THERE_IS_NO_ADULT
@@ -81,6 +81,6 @@ const validateCount = (adult, juvenile) => {
         return GUEST_COUNT_EXCEEDED
     }
 }
-const GUEST_COUNT_EXCEEDED = "투숙객 정원을 초과했습니다."
-const GUEST_COUNT_EMPTY = "투숙객 인원을 입력해 주세요"
-const THERE_IS_NO_ADULT = "미성년자는 보호자가 필요합니다."
+export const GUEST_COUNT_EXCEEDED = "투숙객 정원을 초과했습니다."
+export const GUEST_COUNT_EMPTY = "투숙객 인원을 입력해 주세요"
+export const THERE_IS_NO_ADULT = "미성년자는 보호자가 필요합니다."
