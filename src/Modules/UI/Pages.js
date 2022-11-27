@@ -84,7 +84,7 @@ export const Home = () => {
                     <a href="#" className="hotel-img"><CustomRoomHolder idx={45}></CustomRoomHolder></a>
                 </div>
                 <div className="col-4">
-                    <a href="#" className="hotel-img"><CustomRoomHolder idx={52}></CustomRoomHolder></a>
+                    <a href="#" className="hotel-img"><CustomRoomHolder idx={53}></CustomRoomHolder></a>
                 </div>
             </div>
 

@@ -38,19 +38,17 @@ export const SignUpPage = () => {
             return;
         }
 
-        try {
-            createUserWithEmailAndPassword(
-                auth,
-                formData.get("email"),
-                formData.get("password")
-            ).then((data) => {
-                updateProfile(auth.currentUser, {displayName: formData.get("username")}).then(() => {
-                    addUserToDB(formData.get("username"), formData.get("email"), data.user.uid)
-                    navigate("/");
-                })
+        createUserWithEmailAndPassword(
+            auth,
+            formData.get("email"),
+            formData.get("password")
+        ).then((data) => {
+            updateProfile(auth.currentUser, {displayName: formData.get("username")}).then(() => {
+                addUserToDB(formData.get("username"), formData.get("email"), data.user.uid)
+                navigate("/");
             })
-        } catch (error) {
-            console.log({error});
+        })
+        .catch(error => {
             switch (error.code) {
                 case "auth/invalid-email":
                     setError("유효하지 않은 이메일 주소입니다.");
@@ -65,7 +63,7 @@ export const SignUpPage = () => {
                     setError("Login Error");
                     break;
             }
-        }
+        })
     };
 
     function Copyright(props) {
