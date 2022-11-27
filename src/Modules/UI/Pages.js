@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {RoomPageRoot} from "./MainPage/RoomPageRoot";
 import {SignOutButton, ToSignInPageButton} from "./Common/SignInPage";
 import {isSignedIn, useFBAuth} from "../FirebaseWrapper/FBAuth";
@@ -12,6 +12,7 @@ import {TourGuide} from "../TourGuide/TourGuide";
 import { signOut } from "../FirebaseWrapper/FBAuth";
 import { CustomRoomHolder } from "./MainPage/Grid/Components/RoomHolder";
 import tourData from "../../Data/tourData"
+import { Search } from "./Search/Search";
 
 export const Home = () => {
     return (
@@ -39,12 +40,12 @@ export const Home = () => {
                     </a>
                 </div>
                 <div className="col-4">
-                <a href="CityDetail/Place/jeju-udo">
+                    <a href="CityDetail/Place/jeju-udo">
                         <img src={tourData.filter(data => data.name==="우도")[0].image[0]} className="destination-img"></img>
                     </a>
                 </div>
                 <div className="col-4">
-                <a href="CityDetail/Place/seoul-chunggecheun">
+                    <a href="CityDetail/Place/seoul-chunggecheun">
                         <img src={tourData.filter(data => data.name==="청계천")[0].image[0]} className="destination-img"></img>
                     </a>
                 </div>
@@ -84,7 +85,7 @@ export const Home = () => {
                     <a href="#" className="hotel-img"><CustomRoomHolder idx={45}></CustomRoomHolder></a>
                 </div>
                 <div className="col-4">
-                    <a href="#" className="hotel-img"><CustomRoomHolder idx={52}></CustomRoomHolder></a>
+                    <a href="#" className="hotel-img"><CustomRoomHolder idx={53}></CustomRoomHolder></a>
                 </div>
             </div>
 
@@ -111,9 +112,15 @@ export const Welcome = () => {
 
 export const MainMenu = () => {
     const [auth, isSignIn] = useFBAuth();
+    const navigate = useNavigate();
+
     const signOutMethod = async () => {
         await signOut();
         window.location.reload();
+    }
+    const searchMethod = (event) => {
+        event.preventDefault();
+        navigate(`/Search/${event.currentTarget.searchText.value}`)
     }
     return (
         <>
@@ -144,8 +151,8 @@ export const MainMenu = () => {
                 
                 <div className="col-4">
                     <div className="tab-menu-search">
-                        <form>
-                            <input type="text" placeholder="여행지를 검색하세요."></input>
+                        <form onSubmit={searchMethod}>
+                            <input id="searchText" type="text" placeholder="여행지를 검색하세요."></input>
                         </form>
                     </div>
                 </div>
@@ -212,3 +219,11 @@ export const TourGuidePage= () => {
         </PageTemplate>
     );
 };
+
+export const SearchPage = () => {
+    return (
+        <PageTemplate>
+            <Search/>
+        </PageTemplate>
+    )
+}
