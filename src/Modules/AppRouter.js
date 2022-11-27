@@ -8,7 +8,7 @@ import Flight from "./Search/Flight";
 import {City} from "./TourGuide/City";
 import {Place} from './TourGuide/Place';
 import {CheckoutRoot} from "./UI/Checkout/CheckoutRoot";
-import {FlightPage, Home, MyPage, RoomPage, TourGuidePage, Welcome} from "./UI/Pages";
+import {FlightPage, Home, MyPage, RoomPage, SearchPage, TourGuidePage, Welcome} from "./UI/Pages";
 
 
 export const AppRouter = () => {
@@ -29,6 +29,7 @@ export const AppRouter = () => {
                 <Route path="/FlightPage" element={<FlightPage />} />
                 <Route path="/TourGuide" element={<TourGuidePage/>} />
                 <Route path="/RoomPage" element={<RoomPage/>} />
+                <Route path="/Search/:searchText" element={<SearchPage/>} />
             </Routes>
         </BrowserRouter>
     )
