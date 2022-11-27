@@ -1,0 +1,37 @@
+@import "./default.css";
+body{
+    font-family: 'regular';
+}
+
+
+.search-01{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}
+.search-01 h6{
+    font-size:18px;
+    font-weight:bold !important;
+}
+.search-table{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}
+.search-link{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}

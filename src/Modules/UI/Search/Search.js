@@ -12,6 +12,7 @@ import React from "react";
 import { Avatar, Typography } from "@mui/material";
 
 import PropTypes from "prop-types";
+import "./css/search.css";
 
 export const Search = () => {
   const params = useParams();
@@ -35,8 +36,12 @@ export const SearchDetail = ({ text }) => {
   );
   const rows = cityList;
   return (
+    <div className="search-wrapper">
     <React.Fragment>
+      <div className="search-01">
       <Typography variant="h6" sx={{ml:1}}>여행지 검색 결과</Typography>
+      </div>
+      <div className="search-table">
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -64,9 +69,13 @@ export const SearchDetail = ({ text }) => {
           ))}
         </TableBody>
       </Table>
+      </div>
+      <div className="search-link">
       <Link color="primary" href="/TourGuide" sx={{ ml: 1, mt: 3 }}>
         여행지 더보기
       </Link>
+      </div>
     </React.Fragment>
+    </div>
   );
 };
