@@ -13,6 +13,9 @@ import { signOut } from "../FirebaseWrapper/FBAuth";
 import { CustomRoomHolder } from "./MainPage/Grid/Components/RoomHolder";
 import tourData from "../../Data/tourData"
 import { Search } from "./Search/Search";
+import { Place } from "Modules/TourGuide/Place";
+import { Product } from "./Products/Product";
+import { City } from "Modules/TourGuide/City";
 
 export const Home = () => {
     return (
@@ -224,6 +227,30 @@ export const SearchPage = () => {
     return (
         <PageTemplate>
             <Search/>
+        </PageTemplate>
+    )
+}
+
+export const PlacePage = () => {
+    return (
+        <PageTemplate>
+            <Place/>
+        </PageTemplate>
+    )
+}
+
+export const ProductPage = () => {
+    return (
+        <PageTemplate>
+            <Product/>
+        </PageTemplate>
+    )
+}
+
+export const CityPage = () => {
+    return (
+        <PageTemplate>
+            <City/>
         </PageTemplate>
     )
 }

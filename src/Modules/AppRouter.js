@@ -8,7 +8,7 @@ import Flight from "./Search/Flight";
 import {City} from "./TourGuide/City";
 import {Place} from './TourGuide/Place';
 import {CheckoutRoot} from "./UI/Checkout/CheckoutRoot";
-import {FlightPage, Home, MyPage, RoomPage, SearchPage, TourGuidePage, Welcome} from "./UI/Pages";
+import {CityPage, FlightPage, Home, MyPage, PlacePage, ProductPage, RoomPage, SearchPage, TourGuidePage, Welcome} from "./UI/Pages";
 
 
 export const AppRouter = () => {
@@ -16,14 +16,11 @@ export const AppRouter = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/Welcome" element={<Welcome/>}/>
-                <Route path="/Test" element={<TestPage/>}/>
                 <Route path="/SignIn" element={<SignInPage/>}/>
-                <Route path="/Product/:productID" element={<Product/>}/>
-                <Route path="/CityDetail/:cityeng" element={<City/>}/>
-                <Route path="/CityDetail/Place/:namecode" element={<Place/>}/>
+                <Route path="/CityDetail/:cityeng" element={<CityPage/>}/>
+                <Route path="/CityDetail/Place/:namecode" element={<PlacePage/>}/>
                 <Route path="/SignUp" element={<SignUpPage/>}/>
-                <Route path="/Product/:productID" element={<Product/>}/>
+                <Route path="/Product/:productID" element={<ProductPage/>}/>
                 <Route path="/Checkout/:checkout" element={<CheckoutRoot/>}/>
                 <Route path="/MyPage" element={<MyPage/>}/>
                 <Route path="/FlightPage" element={<FlightPage />} />
