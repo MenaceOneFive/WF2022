@@ -3,8 +3,8 @@
 body{
     font-family: 'regular';
 }
-.slide-container{
-    width: 60%;
+.slider-container{
+    width: 60% !important; 
     margin: 20px auto;
     background: rgb(255, 255, 255);
     padding: 24px 16px 35px;
