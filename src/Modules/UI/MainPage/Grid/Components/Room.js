@@ -30,7 +30,7 @@ export const Room = ({data, style, imageSrc, setMouseEnter}) => {
                          setMouseEnter(false)
                      }} alt={room.id}/>
                 <hr/>
-                <div style={{width: '100%', height: '33.3%', position: "relative"}}>
+                <div style={{color: "black", width: '100%', height: '33.3%', position: "relative"}}>
                     {room.name}</div>
             </div>)
     else return (
