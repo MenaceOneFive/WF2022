@@ -20,7 +20,7 @@ export const Room = ({loading, room, style, imageSrc, setMouseEnter}) => {
                          setMouseEnter(false)
                      }} alt={room.id}/>
                 <hr/>
-                <div style={{width: 200, height: 100}}>{room.name}</div>
+                <div style={{width: 200, height: 100, color: "inherit", textDecoration: "none"}}>{room.name}</div>
             </div>)
     else return (
         //TODO: 꾸미기
