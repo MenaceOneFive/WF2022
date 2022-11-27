@@ -12,7 +12,7 @@ const Carousel = ({images}) => {
     }
 
     return (
-        <div className="slide-container">
+        <div className="slider-container">
             <div className="carousel">
                 <Slider {...settings}>
                     {images.map(
