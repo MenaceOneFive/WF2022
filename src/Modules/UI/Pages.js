@@ -16,6 +16,7 @@ import { Search } from "./Search/Search";
 import { Place } from "Modules/TourGuide/Place";
 import { Product } from "./Products/Product";
 import { City } from "Modules/TourGuide/City";
+import { CheckoutRoot } from "./Checkout/CheckoutRoot";
 
 // 홈 화면 렌더링 컴포넌트
 export const Home = () => {
@@ -254,6 +255,14 @@ export const CityPage = () => {
     return (
         <PageTemplate>
             <City/>
+        </PageTemplate>
+    )
+}
+
+export const CheckoutPage = () => {
+    return (
+        <PageTemplate>
+            <CheckoutRoot/>
         </PageTemplate>
     )
 }

@@ -8,7 +8,7 @@ import Flight from "./Search/Flight";
 import {City} from "./TourGuide/City";
 import {Place} from './TourGuide/Place';
 import {CheckoutRoot} from "./UI/Checkout/CheckoutRoot";
-import {CityPage, FlightPage, Home, MyPage, PlacePage, ProductPage, RoomPage, SearchPage, TourGuidePage, Welcome} from "./UI/Pages";
+import {CheckoutPage, CityPage, FlightPage, Home, MyPage, PlacePage, ProductPage, RoomPage, SearchPage, TourGuidePage, Welcome} from "./UI/Pages";
 
 
 // 전체 라우팅 path를 지정하는 컴포넌트
@@ -22,7 +22,7 @@ export const AppRouter = () => {
                 <Route path="/CityDetail/Place/:namecode" element={<PlacePage/>}/>
                 <Route path="/SignUp" element={<SignUpPage/>}/>
                 <Route path="/Product/:productID" element={<ProductPage/>}/>
-                <Route path="/Checkout/:checkout" element={<CheckoutRoot/>}/>
+                <Route path="/Checkout/:checkout" element={<CheckoutPage/>}/>
                 <Route path="/MyPage" element={<MyPage/>}/>
                 <Route path="/FlightPage" element={<FlightPage />} />
                 <Route path="/TourGuide" element={<TourGuidePage/>} />
