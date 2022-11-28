@@ -11,7 +11,9 @@ export const MyPageRoot = () => {
     if (!isSignIn) {
         return (
             <>
+                <div className="need_login">
                 <p>로그인이 필요합니다</p>
+                </div>
             </>
         )
     }
