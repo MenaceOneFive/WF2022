@@ -102,7 +102,7 @@
     position: absolute;
     right: 30px;
     bottom: 30px;
-    width: 150px;
+    width: 150px !important;
     height: 55px;
     background-color: #153462 !important;
     color: #fff;
