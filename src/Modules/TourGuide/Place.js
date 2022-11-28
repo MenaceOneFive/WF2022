@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick-theme.css'
 import Box from '@mui/material/Box';
 import SimpleAccordion from "./PlaceExplaination";
 import Carousel from "./Slider";
-import { PageTemplate } from "Modules/UI/Pages";
 
 export const Place = () => {
 
@@ -14,9 +13,7 @@ export const Place = () => {
     const placename = params.namecode;
     
     return (
-    <PageTemplate>
       <PlaceDetail placename={placename}/>
-    </PageTemplate>
     )
 }
 

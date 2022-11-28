@@ -7,7 +7,6 @@ import DenseAppBar from "./RoomName";
 import SimpleAccordion from "./Facilities"
 import AlertDialog from "./Description";
 import BasicButtons from "./Reservation";
-import {PageTemplate} from "../Pages";
 import Paper from "@mui/material/Paper";
 import {DatePickers} from "../Checkout/Components/DatePickers";
 import {useState} from "react";
@@ -40,26 +39,22 @@ export const ProductDetail = ({idx}) => {
     }
     //결과 화면
     return (
-        <>
-            <PageTemplate>
-                <div className="container">
-                    <article>
-                        <Paper elevation={15}>
-                            <DenseAppBar name={room.name}/>
-                            <Carousel images={room.images}/>
-                            <AlertDialog name={room.name} description={room.description}/>
-                            <SimpleAccordion facility={room.facility}/>
-                        </Paper>
-                        <ReviewSection idx={idx}/>
-                    </article>
-                    <aside>
-                        <Paper sx={{width: '100px'}} elevation={12}>
-                            <DatePickers start={{startDate, setStartDate}} end={{endDate, setEndDate}}></DatePickers>
-                            <BasicButtons idx={idx} startDate={startDate.format("YYYY-MM-DD")} endDate={endDate.format("YYYY-MM-DD")}/>
-                        </Paper>
-                    </aside>
-                </div>
-            </PageTemplate>
-        </>
+        <div className="container">
+            <article>
+                <Paper elevation={15}>
+                    <DenseAppBar name={room.name}/>
+                    <Carousel images={room.images}/>
+                    <AlertDialog name={room.name} description={room.description}/>
+                    <SimpleAccordion facility={room.facility}/>
+                </Paper>
+                <ReviewSection idx={idx}/>
+            </article>
+            <aside>
+                <Paper sx={{width: '100px'}} elevation={12}>
+                    <DatePickers start={{startDate, setStartDate}} end={{endDate, setEndDate}}></DatePickers>
+                    <BasicButtons idx={idx} startDate={startDate.format("YYYY-MM-DD")} endDate={endDate.format("YYYY-MM-DD")}/>
+                </Paper>
+            </aside>
+        </div>
     )
 }

@@ -4,7 +4,6 @@ import cityData from '../../Data/cityData';
 import "./css/city.css"
 import Box from '@mui/material/Box';
 import SimpleAccordion from "./CityExplaination";
-import { PageTemplate } from "Modules/UI/Pages";
 export const City = () => {
 
     const params = useParams();
@@ -21,7 +20,6 @@ export const CityDetail = ({citycode}) => {
     console.log(detailList);
 
     return (
-        <PageTemplate>
         <Box className="cityDetail">
             <Box className="cityGuid">
             <h2>{detail.city}</h2>
@@ -61,5 +59,4 @@ export const CityDetail = ({citycode}) => {
                 </Box>
             </Box>
         </Box>
-        </PageTemplate>
     ) }
