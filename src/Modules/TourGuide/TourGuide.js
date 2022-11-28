@@ -37,20 +37,8 @@ export const TourGuide = () => {
     </>
   )
 }
-//   return (
-//     <>
-//       <Carousel fade activeIndex={index} onSelect={handleSelect} style={{...bootstrap, width: 800, height: 400}}>
-//         {cityImages.map( (item, i) => { return (
-//           <Carousel.Item key={i}>
-//             <a href={`/CityDetail/${cityeng[i]}`}>
-//               <img src={item} className={"city-img"} width={800} height={400}/>
-//               <Carousel.Caption>
-//                 <h3>{city[i]}</h3>
-//               </Carousel.Caption>
-//             </a>
-//           </Carousel.Item>
-//         )})}
-//       </Carousel>
-//     </>
-//   )
-// }
+
+/**
+ * 현재 모든 여행지에 대한 데이터를 구비하기에는 한계가 존재하여 국내 2곳, 해외 2곳으로 데이터를 사용하였습니다.
+ * 사용자는 이미지 패널을 보며 원하는 여행지를 선택할 수 있고 양 옆의 넘기기 버튼을 통해 다른 여행지를 볼 수 있습니다.
+ */
