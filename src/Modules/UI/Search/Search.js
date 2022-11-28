@@ -14,6 +14,8 @@ import { Avatar, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import "./css/search.css";
 
+// 여행지 검색을 위한 컴포넌트
+// 검색어를 받아서 SearchDetail로 전달
 export const Search = () => {
   const params = useParams();
   const searchText = params.searchText;
@@ -27,6 +29,8 @@ export const SearchDetail = ({ text }) => {
   const clickMethod = (url) => {
     nevigate(url);
   };
+
+  // 검색어를 filter
   const cityList = tourData.filter(
     (data) =>
       data.cityeng.includes(text) ||
@@ -35,6 +39,8 @@ export const SearchDetail = ({ text }) => {
       data.namecode.includes(text)
   );
   const rows = cityList;
+
+  // 검색 내용 렌더링
   return (
     <div className="search-wrapper">
     <React.Fragment>

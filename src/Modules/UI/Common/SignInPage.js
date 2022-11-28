@@ -17,11 +17,13 @@ import Container from "@mui/material/Container";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import {GoogleSignInButton} from "../../FirebaseWrapper/GoogleSignInButton";
 
+// 로그인을 위한 컴포넌트
 export const SignInPage = () => {
     const [error, setError] = useState("");
     const auth = getFBAuth();
     const navigate = useNavigate();
 
+    // 폼 입력 데이터를 기반으로 로그인 처리
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
@@ -33,7 +35,7 @@ export const SignInPage = () => {
             );
             console.log(data);
             navigate("/");
-        } catch (error) {
+        } catch (error) { // 파이어베이스 auth에서 제공하는 로그인 오류 처리
             console.log({error});
             switch (error.code) {
                 case "auth/invalid-email":
@@ -67,6 +69,7 @@ export const SignInPage = () => {
 
     const theme = createTheme();
 
+    //로그인 화면 렌더링
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">

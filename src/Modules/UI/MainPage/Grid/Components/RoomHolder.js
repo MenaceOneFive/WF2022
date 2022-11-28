@@ -28,6 +28,8 @@ export const RoomHolder = ({idx, style}) => {
                   setMouseEnter={setMouseEnter}/></a>)
 }
 
+
+// 홈 화면 숙소 추천 탭에서 사용하는 RoomHolder, CustomRoom을 렌더링함
 export const CustomRoomHolder = ({idx, style}) => {
     const [data, loading] = useRoom(idx)
     const [imgIdx, setImgIdx] = useState(0)
