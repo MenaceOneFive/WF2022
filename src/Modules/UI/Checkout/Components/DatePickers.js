@@ -7,6 +7,13 @@ import {Alert, TextField} from "@mui/material";
 import {getDiff} from "./Diff";
 import '../css/DatePicker.css'
 
+/**
+ * 날짜 검증을 담당하는 컴포넌트
+ * @param start
+ * @param end
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const DatePickers = ({start, end}) => {
     const startDate = start.startDate
     const endDate = end.endDate

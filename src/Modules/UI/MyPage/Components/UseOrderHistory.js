@@ -3,7 +3,7 @@ import {collection, getDocs, getFirestore, query, where} from "firebase/firestor
 import {FBInit} from "../../../FirebaseWrapper/FBInit";
 
 /**
- *
+ * 사용자의 주문내역을 파이어스토어에서 가져오는 훅
  * @param uid 조회할 사용자의 UID
  * @returns {[ * [],boolean]} 주문정보, 로딩 여부
  */

@@ -5,6 +5,11 @@ export class Review{
         this.review= ""     //리뷰
     }
 }
+
+/**
+ * 파이어베이스에서 리뷰를 가져오거나 보낼 때 변환을 위한 객체
+ * @type {{toFirestore: (function(*): {uid: *, review: *, stars: *}), fromFirestore: ReviewConverter.fromFirestore}}
+ */
 export const ReviewConverter = {
     toFirestore: (review) => {
         return {

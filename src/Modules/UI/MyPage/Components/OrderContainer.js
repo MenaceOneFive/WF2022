@@ -2,6 +2,13 @@ import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow}
 import {EnumerateOrders} from "./EnumerateOrders";
 import {Loading} from "../../Common/Loading";
 
+/**
+ * 전체 주문을 렌더링 하는 컴포넌트
+ * @param orders
+ * @param loading
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const OrderContainer = ({orders, loading}) => {
     if (loading)
         return (<Loading/>)

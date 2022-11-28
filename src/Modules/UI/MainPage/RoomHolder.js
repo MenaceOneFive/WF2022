@@ -2,6 +2,13 @@ import {useRoom} from "../../hooks";
 import {useEffect, useRef, useState} from "react";
 import {CustomRoom, Room} from "./Room";
 
+/**
+ * 인덱스를 받아서 그리드에 개별 방에 대한 간략한 정보를 렌더링하는 컴포넌트
+ * @param idx
+ * @param style
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const RoomHolder = ({idx, style}) => {
     const [data, loading] = useRoom(idx)
     const [imgIdx, setImgIdx] = useState(0)
