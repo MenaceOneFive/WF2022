@@ -1,5 +1,13 @@
 import {Chip} from "@mui/material";
 import '../css/Payment.css'
+
+/**
+ * 결제 수단을 렌더링하고 값을 업데이트하는 컴포넌트
+ * @param current
+ * @param set
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const Payment = ({current, set}) => {
     return (<div className='payment-method'>
         <Chip label="현장 결제" variant={current === "현장 결제"?"outlined":""} onClick={() => {

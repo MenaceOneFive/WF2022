@@ -1,6 +1,13 @@
 import {useNavigate} from "react-router-dom";
 import '../css/BriefRoomInfo.css'
 
+/**
+ * 예약화면에서 예약에 대한 정보를 요약해서 보여주는 컴포넌트
+ * @param room
+ * @param id
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const BriefRoomInfo = ({room, id}) => {
     const navigate = useNavigate()
     const onClick = () => {

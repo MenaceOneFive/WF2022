@@ -5,6 +5,12 @@ import {Review} from "../../../Classes/Review";
 import {DrawReview} from "./DrawReview";
 import {NoReviews} from "./NoReviews";
 
+/**
+ * 개별 방에 대한 리뷰를 파이어베이스에서 가져오는 컴포넌트
+ * @param idx
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const ReadReviewsFromStorage = ({idx}) => {
     const [reviews, setReviews] = useState([]);
     const app = FBInit().app;

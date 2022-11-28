@@ -14,23 +14,27 @@ export const MainPageGrid = () => {
     //브라우저의 상황에 맞게 동적으로 계산하도록 수정해야함
     var column = 4
     const grid = {column, row: (count / column)}
+
+    //개별 방을 렌더링
     const GridItem = ({columnIndex, rowIndex, style}) => {
         const idx = columnIndex + grid.column * rowIndex
-        if(count < idx)
+        if (count < idx)
             return (<></>)
         return (
             <RoomHolder idx={idx} style={style}/>
         )
     }
+    // 그리드를 렌더링
     const GridLayout = () => {
-        return (<FixedSizeGrid columnCount={grid.column} columnWidth={300}
-                               rowCount={grid.row} rowHeight={400}
-                               width={window.innerWidth} height={window.innerHeight}>
-            {GridItem}
-        </FixedSizeGrid>)
+        return (
+            <FixedSizeGrid columnCount={grid.column} columnWidth={300}
+                           rowCount={grid.row} rowHeight={400}
+                           width={window.innerWidth} height={window.innerHeight}>
+                {GridItem}
+            </FixedSizeGrid>
+        )
     }
     if (loading) {
-        //TODO: 꾸미기
         return (<Loading/>)
     } else {
         return (

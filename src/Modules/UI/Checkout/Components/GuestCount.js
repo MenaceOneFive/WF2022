@@ -2,6 +2,14 @@ import {Alert, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {useState} from "react";
 import '../css/GuestCount.css'
 
+/**
+ * 예약인원에 대한 정보를 표시하고 사용자의 값을 검증해서 상태를 갱신하는
+ * 컴포넌트
+ * @param adult
+ * @param juvenile
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const GuestCount = ({adult, juvenile}) => {
     const count = [0, 1, 2, 3, 4, 5, 6]
     const [alertMsg, setAlertMsg] = useState("")

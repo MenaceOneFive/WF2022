@@ -1,13 +1,11 @@
 export class Room {
     constructor() {
-        //숙소의 ID
-        this.id = 0
-        //숙소에 대한 설명
-        this.name = ""
-        this.description = ""
-        this.detail = null
-        this.facility = null
-        this.images = null
+        this.id = 0                 //숙소의 ID
+        this.name = ""              // 방 이름
+        this.description = ""       // 방에 대한 설명
+        this.detail = null          //
+        this.facility = null        // 사용가능한 시설
+        this.images = null          // 방의 사진
 
     }
 }
@@ -17,7 +15,7 @@ export class Room {
 export const ConvertJsonToRoom = (obj) => {
     let room = new Room();
     room.id = obj.id
-    room.name= obj.name
+    room.name = obj.name
     room.description = obj.description
     room.detail = obj.detail
     room.facility = obj.facility
@@ -26,7 +24,9 @@ export const ConvertJsonToRoom = (obj) => {
 
 }
 
-// Firebase에 있는 개별 문서에 있는 숙소에 대한 정보와 객체 사이의 양방향 변환을 담당
+/**
+ * Firebase에 있는 개별 문서에 있는 숙소에 대한 정보와 객체 사이의 양방향 변환을 담당
+ */
 export const RoomConverter = {
     toFirestore: (room) => {
         return {

@@ -16,6 +16,11 @@ import {GuestCount, validateCount} from "./Components/GuestCount";
 import {Payment} from "./Components/Payment";
 import {Loading} from "../Common/Loading";
 
+/**
+ * 예약 페이지 전체를 렌더링하는 컴포넌트
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const CheckoutRoot = () => {
     const params = useParams()
     const location = useLocation()

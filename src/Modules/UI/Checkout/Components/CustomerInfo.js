@@ -1,5 +1,12 @@
 import {Box, TextField} from "@mui/material";
 
+/**
+ * 예약자의 신상정보를 입력받고 상태를 갱신하는 컴포넌트
+ * @param customer
+ * @param setCustomer
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const CustomerInfo = ({customer, setCustomer}) => {
     return (
         <Box

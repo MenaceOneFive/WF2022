@@ -8,6 +8,12 @@ import Avatar from "@mui/material/Avatar";
 import {deepOrange} from "@mui/material/colors";
 import Paper from "@mui/material/Paper";
 
+/**
+ * 사용자의 리뷰를 입력받고 파이어베이스에 업로드하는 컴포넌트
+ * @param idx
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const WriteReview = ({idx}) => {
     const [auth, isSignIn] = useFBAuth()
     const [innerText, setInnerText] = useState("")

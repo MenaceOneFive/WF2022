@@ -14,6 +14,11 @@ import {useState} from "react";
 import dayjs from "dayjs";
 import {ReviewSection} from "../../Review/ReviewSection";
 
+/**
+ * 개별 숙소에 대한 로딩과 링크 검증을 담당하는 컴포넌트
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const Product = () => {
     const params = useParams();
     const [length, loading] = useRoomCollectionLength()
@@ -27,6 +32,11 @@ export const Product = () => {
     return (<ProductDetail idx={roomID}/>)
 }
 
+/**
+ * 개별 숙소에 대한 상세 정보를 렌더링 하는 컴포넌트
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const ProductDetail = ({idx}) => {
     const [room, loading] = useRoom(idx)
     const today = dayjs()

@@ -3,6 +3,12 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import {deepOrange} from "@mui/material/colors";
 
+/**
+ * 개별 리뷰를 렌더링하는 컴포넌트
+ * @param review
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const DrawReview = ({review}) => {
     if (review === undefined)
         return (<></>)

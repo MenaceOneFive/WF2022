@@ -1,13 +1,17 @@
 export class Order {
     constructor() {
-        this.orderId = ""    //유저 평가한 별점
-        this.roomId = ""
-        this.startDate = ""
-        this.endDate = ""
-        this.UID = ""  //FirebaseUID
+        this.orderId = ""       //유저 평가한 별점
+        this.roomId = ""        //숙소의 고유 정보
+        this.startDate = ""     //입실일
+        this.endDate = ""       //퇴실일
+        this.UID = ""           //FirebaseUID- 로그인 정보
     }
 }
 
+/**
+ * 파이어스토어에서 자료를 가져오거나 보낼 때 변환을 담당하는 객체
+ * @type {{toFirestore: (function(*): {UID: *, orderId: *, endDate: *, roomId: *, startDate: *}), fromFirestore: (function(*, *): Order)}}
+ */
 export const OrderConverter = {
     toFirestore: (order) => {
         return {
