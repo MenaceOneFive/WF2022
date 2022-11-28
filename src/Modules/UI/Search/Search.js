@@ -38,14 +38,17 @@ export const SearchDetail = ({ text }) => {
       data.name.includes(text) ||
       data.namecode.includes(text)
   );
-  const rows = cityList;
+  console.log(cityList);
+  const rows = cityList.sort((a, b) => a.name.localeCompare(b.name));
+  console.log(rows);
 
-  // 검색 내용 렌더링
+
+  // 검색 결과 렌더링
   return (
     <div className="search-wrapper">
     <React.Fragment>
       <div className="search-01">
-      <Typography variant="h6" sx={{ml:1}}>여행지 검색 결과</Typography>
+      <Typography variant="h6" sx={{ml:1}}>{rows.length == 0 ? "여행지 검색 결과가 없습니다." : "여행지 검색 결과"}</Typography>
       </div>
       <div className="search-table">
       <Table size="small">

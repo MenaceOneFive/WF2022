@@ -28,6 +28,7 @@ export const AppRouter = () => {
                 <Route path="/TourGuide" element={<TourGuidePage/>} />
                 <Route path="/RoomPage" element={<RoomPage/>} />
                 <Route path="/Search/:searchText" element={<SearchPage/>} />
+                <Route path="/Search" element={<SearchPage/>} />
             </Routes>
         </BrowserRouter>
     )
