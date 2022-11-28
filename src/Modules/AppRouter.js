@@ -11,6 +11,7 @@ import {CheckoutRoot} from "./UI/Checkout/CheckoutRoot";
 import {CityPage, FlightPage, Home, MyPage, PlacePage, ProductPage, RoomPage, SearchPage, TourGuidePage, Welcome} from "./UI/Pages";
 
 
+// 전체 라우팅 path를 지정하는 컴포넌트
 export const AppRouter = () => {
     return (
         <BrowserRouter>

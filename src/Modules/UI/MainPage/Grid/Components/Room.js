@@ -39,6 +39,7 @@ export const Room = ({data, style, imageSrc, setMouseEnter}) => {
     )
 }
 
+// 홈 화면 추천 탭에서 사용하는 Room
 export const CustomRoom = ({loading, room, style, imageSrc, setMouseEnter}) => {
     if (!loading)
         return (

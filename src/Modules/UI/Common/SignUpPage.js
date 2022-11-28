@@ -19,15 +19,19 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 
+
+// 회원가입을 위한 컴포넌트
 export const SignUpPage = () => {
     const [error, setError] = useState("");
     const auth = getFBAuth();
     const navigate = useNavigate();
 
+    // 폼에서 입력받은 정보를 기반으로 회원가입
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
 
+        // 파이어스토어 이용 닉네임 중복 처리
         if (await isOverlapUsername(formData.get("username")) == true) {
             setError("이미 사용하고 있는 사용자 별명입니다.");
             return;
@@ -48,7 +52,7 @@ export const SignUpPage = () => {
                 navigate("/");
             })
         })
-        .catch(error => {
+        .catch(error => { // 파이어베이스 auth에서 제공하는 회원가입 오류 처리
             switch (error.code) {
                 case "auth/invalid-email":
                     setError("유효하지 않은 이메일 주소입니다.");
@@ -80,7 +84,7 @@ export const SignUpPage = () => {
     }
 
     const theme = createTheme();
-
+    // 회원가입 렌더링
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">

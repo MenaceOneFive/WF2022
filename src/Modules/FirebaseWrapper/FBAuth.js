@@ -76,6 +76,7 @@ export const signOut = () => {
     }
 }
 
+// 회원가입 시 파이어스토어에서 유저 이름이 중복되는지 검사하는 함수
 export const isOverlapUsername = async (_username) => {
     var flag = false
     const {app} = FBInit()
@@ -94,6 +95,7 @@ export const isOverlapUsername = async (_username) => {
     return flag
 }
 
+// 회원가입 후 유저를 파이어스토어 DB에 넣는 함수
 export const addUserToDB = (_username, _email, _uid) => {
     const {app} = FBInit()
     const db = getFirestore(app);

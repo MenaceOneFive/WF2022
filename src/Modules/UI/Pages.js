@@ -17,6 +17,7 @@ import { Place } from "Modules/TourGuide/Place";
 import { Product } from "./Products/Product";
 import { City } from "Modules/TourGuide/City";
 
+// 홈 화면 렌더링 컴포넌트
 export const Home = () => {
     return (
         <>
@@ -113,6 +114,7 @@ export const Welcome = () => {
     return <p>Welcome</p>;
 };
 
+// 페이지 상단 메인메뉴 컴포넌트
 export const MainMenu = () => {
     const [auth, isSignIn] = useFBAuth();
     const navigate = useNavigate();
@@ -159,7 +161,7 @@ export const MainMenu = () => {
                         </form>
                     </div>
                 </div>
-                {isSignedIn() ?
+                {isSignedIn() ? // 로그인 정보를 이용해서 적절한 버튼으로 갱신함
                     <>
                         <div className="col-1">
                             <Link to="#" onClick={signOutMethod} className="sign-in-button">로그아웃</Link>
@@ -185,6 +187,7 @@ export const MainMenu = () => {
     );
 };
 
+// 메뉴가 필요한 페이지에 메인 메뉴를 포함시킴
 export const PageTemplate = ({children}) => (
     <div className="page">
         <MainMenu/>
