@@ -46,7 +46,7 @@ export const Map = ({detail, markers}) => {
 
   
   return (
-  <Box className="detailMap" style={{ height: 480, width: 800 }}>
+  <Box className="detailMap" style={{ height: 480}}>
     <GoogleMapReact
       bootstrapURLKeys = {{ key: myAPIKEY }}
       defaultCenter={{lat: detail.gps[0], lng: detail.gps[1]}}

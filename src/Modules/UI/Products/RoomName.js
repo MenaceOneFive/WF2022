@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
-
+//숙소의 이름을 보여줌
 export default function DenseAppBar({name}) {
   return (
     <Box sx={{ flexGrow: 1 }}>

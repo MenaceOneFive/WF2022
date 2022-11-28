@@ -5,7 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
+//숙소 상세 정보를 보여주는 버튼을 만듦
 export default function AlertDialog({name, description}) {
   const [open, setOpen] = React.useState(false);
 
