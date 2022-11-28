@@ -28,3 +28,17 @@ aside {
 #startDate, #endDate {
     width: 15%;
 }
+
+.need_login{
+    padding:20px;
+    width: 60%;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 24px 16px 16px;
+    border-radius: 8px;
+    box-shadow: rgb(15 41 77 / 12%) 0px 4px 20px;
+}
+.need_login p{
+    font-size:18px;
+    font-weight:bold;
+}
