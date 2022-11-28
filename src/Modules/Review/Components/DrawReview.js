@@ -22,9 +22,9 @@ export const DrawReview = ({review}) => {
                             {review.uid}
                         </Typography>
                     </div>
-                    <Typography  color="text.secondary" gutterBottom>
-                        평점 : {review.stars}
-                    </Typography>
+                    {/*<Typography  color="text.secondary" gutterBottom>*/}
+                    {/*    평점 : {review.stars}*/}
+                    {/*</Typography>*/}
                     <Typography  color="text.secondary">
                         리뷰 : {review.review}
                     </Typography>
